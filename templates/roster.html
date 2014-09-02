@@ -1,0 +1,35 @@
+{% paginate roster.items by 25 %}
+  <div id="roster" class="row">
+    <div class="large-12 columns">
+      <h4>{{ roster.title }}</h4>
+      <hr/>
+
+      <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+        {% for item in roster.items %}
+          <li>
+            <div>
+              <a class="th" href="{{ item.url }}">
+                {% if item.images.size > 0 %}
+                  <img src="{{ item.images.first.v200_url }}"/>
+                {% else %}
+                  <img src="https://d38hlclas8yf9g.cloudfront.net/product-image-placeholder-200.png"/>
+                {% endif %}
+              </a>
+              <div class="panel panel-info">
+                <div><a href="{{ item.url }}">{{ item.name }}</a></div>
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="pagination-centered">
+        {{ roster.items_pagination }}
+      </div>
+    </div>
+  </div>
+{% endpaginate %}

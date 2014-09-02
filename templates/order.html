@@ -1,0 +1,125 @@
+<div id="order" class="row">
+  <div class="large-12 columns">
+    <div class="row">
+      <div class="large-12 columns">
+        <h4>Order {{ order.number }}</h4>
+        <hr/>
+      </div>
+    </div>
+
+    {% if order.attempted? %}
+      <div class="row">
+        <div class="large-6 medium-6 small-12 columns">
+          <p>
+            <strong>State</strong><br/>
+            {{ order.state }}
+          </p>
+
+          <p>
+            <strong>Transaction</strong><br/>
+            {{ order.transaction_id }}
+          </p>
+        </div>
+
+        <div class="large-6 medium-6 small-12 columns">
+          {% if order.customer %}
+            <p>
+              <strong>Customer</strong>
+              {% if order.customer.first_name or order.customer.last_name %}
+                {{ order.customer.first_name }} {{ order.customer.last_name }}<br/>
+              {% endif %}
+              {{ order.customer.email }}
+            </p>
+          {% endif %}
+
+          {% if order.shipping_address %}
+            <p>
+              <strong>Ship to</strong><br/>
+              {{ order.shipping_address.first_name }} {{ order.shipping_address.last_name }}<br/>
+              {{ order.shipping_address.street_address_1 }}<br/>
+              {% if order.shipping_address.street_address_2 != '' %}
+                {{ order.shipping_address.street_address_2 }}<br/>
+              {% endif %}
+              {{ order.shipping_address.city }},
+              {{ order.shipping_address.state }}
+              {{ order.shipping_address.postal_code }}
+              {{ order.shipping_address.country }}
+            </p>
+          {% endif %}
+        </div>
+      </div>
+
+      <div id="question" class="row">
+        <div class="large-12 medium-12 small-12 columns">
+          <div class="panel">
+            Have a question about this order?<br/>
+            Please reply to your confirmation email.
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
+    <table class="large-12 medium-12 small-12" cellspacing="0">
+      <thead>
+        <tr>
+          <th colspan="4">Items</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in order.items %}
+          <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.unit_price | money }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.total_price | money }}</td>
+          </tr>
+        {% endfor %}
+
+        {% unless order.digital %}
+          <tr>
+            <td></td>
+            <td colspan="2">Subtotal</td>
+            <td>{{ order.subtotal | money }}</td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td colspan="2">Shipping</td>
+            <td>{{ order.shipping | money }}</td>
+          </tr>
+        {% endunless %}
+
+        {% if order.discount? %}
+          <tr>
+            <td></td>
+            <td colspan="2">Discount</td>
+            <td>{{ order.discount_amount | money }}</td>
+          </tr>
+        {% endif %}
+
+        <tr>
+          <td></td>
+          <td colspan="2">Total</td>
+          <td>{{ order.total_price | money_with_currency }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    {% if order.attempted? and order.downloads.size > 0 %}
+      <table class="large-12 medium-12 small-12" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Instant Downloads</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for download in order.downloads %}
+            <tr>
+              <td>{{ download | link_to_download }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% endif %}
+  </div>
+</div>

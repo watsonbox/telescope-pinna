@@ -1,0 +1,56 @@
+<div class="event">
+  <a class="th" href="{{ event.url }}">
+    {% if event.images.size > 0 %}
+      <img src="{{ event.images.first.v200_url }}"/>
+    {% else %}
+      <img src="https://d38hlclas8yf9g.cloudfront.net/product-image-placeholder-200.png"/>
+    {% endif %}
+
+    {% if event.custom['banner-text'] != '' %}
+      <div class="panel panel-banner">
+        <div>{{ event.custom['banner-text'] }}</div>
+      </div>
+    {% endif %}
+  </a>
+  <div class="panel panel-info">
+    <div>
+      <a href="{{ event.url }}">
+        {% if event.custom['title'] != '' %}
+          {{ event.custom['title'] }}
+        {% else %}
+          {{ event.name }}
+        {% endif %}
+      </a>
+    </div>
+    <div>
+      {% if event.starts_at %}
+        {{ event.starts_at | date: "%b" }} {{ event.starts_at | date: "%d" | ordinalize }} &middot;
+      {% endif %}
+
+      {% if event.custom['subtitle'] != '' %}
+        {{ event.custom['subtitle'] }}
+      {% else %}
+        {% assign out_of_stock = true %}
+
+        {% if event.available? %}
+          {% for variation in event.variations %}
+            {% if variation.available? %}
+              {% assign out_of_stock = false %}
+            {% endif %}
+          {% endfor %}
+
+          {% if out_of_stock %}
+            Sold Out
+          {% else %}
+            {{ event.price_range | money | join: ' - ' }}
+          {% endif %}
+
+        {% elsif event.announced? %}
+          Coming Soon
+        {% elsif event.unavailable? %}
+          Unavailable
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+</div>

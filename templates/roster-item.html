@@ -1,0 +1,165 @@
+<div id="roster-item" class="row">
+  <div class="large-12 columns">
+    {% if section == 'products' %}
+      {% paginate item.products by 24 %}
+        <div class="row">
+          <div class="large-12 columns">
+            <h4>
+              <a href="{{ item.url }}">
+                {{ item.name }}
+              </a>
+            </h4>
+            <hr/>
+
+            <ul class="small-block-grid-2 medium-block-grid-4 large-block-grid-4">
+              {% for product in item.products %}
+                <li>
+                  {% include 'product-for-grid.html' %}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-12 columns">
+            <div class="pagination-centered">
+              {{ item.products_pagination }}
+            </div>
+          </div>
+        </div>
+      {% endpaginate %}
+
+    {% else %}
+      <div class="row">
+        <div class="large-12 columns">
+          <h4>{{ item.name }}</h4>
+          <hr/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-12 columns">
+          <ul data-orbit>
+            {% for image in item.images %}
+              <li>
+                <img src="{{ image.url }}"/>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      {% if item.description != '' %}
+        <div id="description" class="row">
+          <div class="large-12 columns">
+            {{ item.description | simple_format }}
+          </div>
+        </div>
+      {% endif %}
+
+      <div class="row">
+        <div class="large-7 medium-7 small-12 columns">
+          {% if item.history_items.size > 0 %}
+            <div class="row">
+              <div class="large-12 columns">
+                <h5>Releases</h5>
+                <hr/>
+
+                <ul class="small-block-grid-2 medium-block-grid-2 large-block-grid-2">
+                  {% for history_item in item.history_items %}
+                    <li>
+                      <div class="product">
+                        {% if history_item.catalog_number != '' %}
+                          <a class="th" href="{{ history_item.url }}">
+                            {% if history_item.images.size > 0 %}
+                              <img src="{{ history_item.images.first.v200_url }}"/>
+                            {% else %}
+                              <img src="https://d38hlclas8yf9g.cloudfront.net/product-image-placeholder-200.png"/>
+                            {% endif %}
+                          </a>
+                          <div class="panel panel-info">
+                            <div>
+                              <a href="{{ history_item.url }}">
+                                {{ history_item.name }}
+                              </a>
+                            </div>
+                            <div>{{ history_item.release_information | join: ' &middot; ' }}</div>
+                          </div>
+                        {% else %}
+                          <span class="th">
+                            {% if history_item.images.size > 0 %}
+                              <img src="{{ history_item.images.first.v200_url }}"/>
+                            {% else %}
+                              <img src="https://d38hlclas8yf9g.cloudfront.net/product-image-placeholder-200.png"/>
+                            {% endif %}
+                          </span>
+                          <div class="panel panel-info">
+                            <div>{{ history_item.name }}</div>
+                            <div>{{ history_item.release_information | join: ' &middot; ' }}</div>
+                          </div>
+                        {% endif %}
+                      </div>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          {% endif %}
+
+          {% if item.products.size > 0 %}
+            <div class="row">
+              <div class="large-12 columns">
+                <h5>Store <a class="right" href="{{ item.url }}/products">View All</a></h5>
+                <hr/>
+
+                <ul class="small-block-grid-2 medium-block-grid-4 large-block-grid-4">
+                  {% for product in item.products limit:8 %}
+                    <li class="{% if forloop.index > 4 %}show-for-medium-up{% endif %}">
+                      {% include 'product-for-grid.html' %}
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="large-5 medium-5 small-12 columns">
+          {% if item.links.size > 0 %}
+            <div id="links" class="row">
+              <div class="large-12 columns">
+                <h5>Links</h5>
+                <hr/>
+
+                <ul class="inline-list">
+                  {% for link in item.links %}
+                    <li>
+                      <a href="{{ link.url }}">{{ link.name }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          {% endif %}
+
+          {% if item.soundcloud_playlist_id %}
+            <div id="soundcloud" class="row">
+              <div class="large-12 columns">
+                <iframe width="100%" height="300" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Fplaylists%2F{{ item.soundcloud_playlist_id }}&show_artwork=false&show_play_count=false&color={{ config['soundcloud_player_color'] | replace:'#','' }}"></iframe>
+              </div>
+            </div>
+          {% endif %}
+
+          {% if item.custom['bandsintown'] != '' %}
+            <div id="bandsintown" class="row">
+              <div class="large-12 columns">
+                <script type='text/javascript' src='http://www.bandsintown.com/javascripts/bit_widget.js'></script><a href="http://www.bandsintown.com/{{ item.custom['bandsintown'] }}" class="bit-widget-initializer" data-artist="{{ item.custom['bandsintown'] }}">{{ item.custom['bandsintown'] }}</a>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>

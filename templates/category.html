@@ -1,0 +1,68 @@
+{% if config['hero_images_displayed_on_category_pages'] %}
+  {% if config['hero_images_displayed'] %}
+    <div class="row">
+      <div class="large-12 columns">
+        <ul data-orbit>
+          <li>
+            {% if config['hero_link_0'] %}
+              <a href="{{ config['hero_link_0'] }}">
+                <img src="{{ config['hero_image_0'] }}"/>
+              </a>
+            {% else %}
+              <img src="{{ config['hero_image_0'] }}"/>
+            {% endif %}
+          </li>
+  
+          {% if config['hero_image_1'] != 'http://d38hlclas8yf9g.cloudfront.net/featured-image-placeholder-blue.png' %}
+            <li>
+              {% if config['hero_link_1'] %}
+                <a href="{{ config['hero_link_1'] }}">
+                  <img src="{{ config['hero_image_1'] }}"/>
+                </a>
+              {% else %}
+                <img src="{{ config['hero_image_1'] }}"/>
+              {% endif %}
+            </li>
+          {% endif %}
+  
+          {% if config['hero_image_2'] != 'http://d38hlclas8yf9g.cloudfront.net/featured-image-placeholder-blue.png' %}
+            <li>
+              {% if config['hero_link_2'] %}
+                <a href="{{ config['hero_link_2'] }}">
+                  <img src="{{ config['hero_image_2'] }}"/>
+                </a>
+              {% else %}
+                <img src="{{ config['hero_image_2'] }}"/>
+              {% endif %}
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  {% endif %}
+{% endif %}
+
+{% paginate category.products by 24 %}
+  <div class="row">
+    <div class="large-12 columns">
+      <h4>{{ category.name }}</h4>
+      <hr/>
+
+      <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+        {% for product in category.products %}
+          <li>
+            {% include 'product-for-grid.html' %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="pagination-centered">
+        {{ category.products_pagination }}
+      </div>
+    </div>
+  </div>
+{% endpaginate %}

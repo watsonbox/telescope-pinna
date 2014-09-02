@@ -1,0 +1,52 @@
+<div class="product">
+  <a class="th" href="{{ product.url }}">
+    {% if product.images.size > 0 %}
+      <img src="{{ product.images.first.v200_url }}"/>
+    {% else %}
+      <img src="https://d38hlclas8yf9g.cloudfront.net/product-image-placeholder-200.png"/>
+    {% endif %}
+
+    {% if product.custom['banner-text'] != '' %}
+      <div class="panel panel-banner">
+        <div>{{ product.custom['banner-text'] }}</div>
+      </div>
+    {% endif %}
+  </a>
+  <div class="panel panel-info">
+    <div>
+      <a href="{{ product.url }}">
+        {% if product.custom['title'] != '' %}
+          {{ product.custom['title'] }}
+        {% else %}
+          {{ product.name }}
+        {% endif %}
+      </a>
+    </div>
+    <div>
+      {% if product.custom['subtitle'] != '' %}
+        {{ product.custom['subtitle'] }}
+      {% else %}
+        {% assign out_of_stock = true %}
+
+        {% if product.available? %}
+          {% for variation in product.variations %}
+            {% if variation.available? %}
+              {% assign out_of_stock = false %}
+            {% endif %}
+          {% endfor %}
+
+          {% if out_of_stock %}
+            Out of Stock
+          {% else %}
+            {{ product.price_range | money | join: ' - ' }}
+          {% endif %}
+
+        {% elsif product.announced? %}
+          Coming Soon
+        {% elsif product.unavailable? %}
+          Unavailable
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+</div>

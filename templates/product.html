@@ -1,0 +1,226 @@
+<div id="product" class="row">
+  <div class="large-12 columns">
+    <div class="row">
+      <div class="large-12 columns">
+        <h4>
+          {% if product.custom['title'] != '' %}
+            {{ product.custom['title'] }}
+            {% if product.custom['subtitle'] != '' %}
+              &quot;{{ product.custom['subtitle'] }}&quot;
+            {% endif %}
+          {% else %}
+            {{ product.name}}
+          {% endif %}
+          {% if product.music_catalog_number %}
+            <span class="right">{{ product.music_catalog_number }}</span>
+          {% elsif product.categories.size > 1 %}
+            {% assign custom_category_for_display = false %}
+        
+            {% for c in product.categories limit:1 offset:1 %}
+              {% assign custom_category_for_display = store.category_by_slug[c.slug] %}
+            {% endfor %}
+            
+            {% if custom_category_for_display %}
+              <span class="right"><a href="{{ custom_category_for_display.url }}">{{ custom_category_for_display.name }}</a></span>
+            {% endif %}
+          {% endif %}
+        </h4>
+        <hr/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-12 medium-6 large-6 columns">
+        <div class="row">
+          <div class="small-12 medium-12 large-12 columns">
+            <ul class="clearing-thumbs" data-clearing>
+              {% if product.images.size > 0 %}
+                {% for image in product.images %}
+                  <li class="{% if forloop.index == 1 %}clearing-featured-img{% endif %}">
+                    <a href="{{ image.url }}" target="_blank">
+                      <img src="{{ image.v600_url }}"/>
+                    </a>
+                  </li>
+                {% endfor %}
+              {% else %}
+                <li>
+                  <img src="https://d38hlclas8yf9g.cloudfront.net/product-image-placeholder-300.png"/>
+                </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+
+        {% if product.custom['banner-text'] != '' %}
+          <div class="row">
+            <div class="small-12 medium-12 large-12 columns">
+              <div class="panel panel-banner">
+                <div>{{ product.custom['banner-text'] }}</div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="small-12 medium-6 large-6 columns">
+        <div class="row">
+          {% if product.soundcloud_playlist_id %}
+            <div class="soundcloud-container small-12 medium-12 large-12 columns">
+              <iframe width="100%" height="300" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Fplaylists%2F{{ product.soundcloud_playlist_id }}&show_artwork=false&show_play_count=false&color={{ config['soundcloud_player_color'] | replace:'#','' }}"></iframe>
+            </div>
+          {% endif %}
+
+          <div class="add-to-cart-container small-12 medium-12 large-12 columns">
+            <div class="row collapse">
+              {% if product.available? %}
+                <div class="small-8 columns">
+                  <select id="cart_variation_id_for_{{ product.id }}">
+                    {% if product.variations.size > 1 %}
+                      <option>{% if product.custom['select-one-option-text'] != '' %}{{ product.custom['select-one-option-text'] }}{% else %}{{ config['select-one-option-text'] }}{% endif %}</option>
+                    {% endif %}
+
+                    {% for variation in product.variations %}
+                      {% if variation.available? %}
+                        <option value="{{ variation.id }}">{{ variation.name }} - {{ variation.price | money }}</option>
+                      {% else %}
+                        <option disabled="disabled">{{ variation.name }} - {{ variation.price | money }} (Out of Stock)</option>
+                      {% endif %}
+                    {% endfor %}
+                  </select>
+                </div>
+
+                <div class="small-4 columns">
+                  <button class="button postfix" onclick="javascript:Store.cart.add(document.getElementById('cart_variation_id_for_{{ product.id }}').options[document.getElementById('cart_variation_id_for_{{ product.id }}').selectedIndex].value);return false;">
+                    {{ config['add-to-cart-button-text'] }}
+                  </button>
+                </div>
+
+              {% elsif product.announced? %}
+                <div class="panel">
+                  This item is coming soon.
+                </div>
+
+              {% elsif product.unavailable? %}
+                <div class="panel">
+                  This item isn't currently available.
+                </div>
+
+              {% elsif product.unlisted? %}
+                <div class="panel">
+                  This item isn't listed or visible to your customers.
+                </div>
+              {% endif %}
+            </div>
+          </div>
+
+          {% if product.description != '' %}
+            <div class="small-12 medium-12 large-12 columns">
+              <h5>Info</h5>
+              <hr/>
+
+              {{ product.description | simple_format }}
+            </div>
+          {% endif %}
+          
+          {% if product.eligible_for_availability_notices? %}
+            <div class="small-12 medium-12 large-12 columns">
+              <a class="button expand small" href="#" onclick="javascript:Store.requestNotification('Product', {{ product.id }});">Want an &quot;It's Available!&quot; Email Notification?</a>
+            </div>
+          {% endif %}
+
+          {% if product.music_track_listings %}
+            <div class="small-12 medium-12 large-12 columns">
+              <h5>Tracks</h5>
+              <hr/>
+
+              <ol>
+                {% for track in product.music_track_listings %}
+                  <li>{{ track.id3_track_name }}</li>
+                {% endfor %}
+              </ol>
+            </div>
+          {% endif %}
+
+          {% if product.music_pressing_information %}
+            <div class="small-12 medium-12 large-12 columns">
+              <h5>Pressing Information</h5>
+              <hr/>
+
+              {{ product.music_pressing_information | simple_format }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% assign current_product = product %}
+
+{% if product.custom['related-roster-item-slug'] != '' %}
+  {% assign related_roster_item = store.roster_item_by_slug[product.custom['related-roster-item-slug']] %}
+
+  {% if related_roster_item %}
+    <div class="row">
+      <div class="large-12 columns">
+        <h4>More from {{ related_roster_item.name }} <a class="right" href="{{ related_roster_item.url }}/products">View All</a></h4>
+        <hr/>
+
+        <ul class="small-block-grid-2 medium-block-grid-4 large-block-grid-4">
+          {% assign current_product_skipped = false %}
+
+          {% for product in related_roster_item.products limit:5 %}
+            {% if current_product.id == product.id %}
+              {% assign current_product_skipped = true %}
+            {% else %}
+              <li class="{% if forloop.index > 3 %}show-for-medium-up{% endif %} {% if forloop.index > 4 %}{% unless current_product_skipped %}hide{% endunless %}{% endif %}">
+                {% include 'product-for-grid.html' %}
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  {% endif %}
+{% endif %}
+
+{% assign related_category = false %}
+{% assign specify_category = true %}
+
+{% if product.custom['related-category-slug'] != '' %}
+  {% assign related_category = store.category_by_slug[product.custom['related-category-slug']] %}
+
+{% elsif config['display_related_products_by_category_on_product_pages'] %}
+  {% if product.categories.size > 1 %}
+    {% assign specify_category = false %}
+
+    {% for c in product.categories limit:1 offset:1 %}
+      {% assign related_category = store.category_by_slug[c.slug] %}
+    {% endfor %}
+  {% endif %}
+{% endif %}
+
+{% if related_category %}
+  {% if specify_category or related_category.products.size > 1 %}
+    <div class="row">
+      <div class="large-12 columns">
+        <h4>More in {{ related_category.name }} <a class="right" href="{{ related_category.url }}">View All</a></h4>
+        <hr/>
+  
+        <ul class="small-block-grid-2 medium-block-grid-4 large-block-grid-4">
+          {% assign current_product_skipped = false %}
+  
+          {% for product in related_category.products limit:5 %}
+            {% if current_product.id == product.id %}
+              {% assign current_product_skipped = true %}
+            {% else %}
+              <li class="{% if forloop.index > 3 %}show-for-medium-up{% endif %} {% if forloop.index > 4 %}{% unless current_product_skipped %}hide{% endunless %}{% endif %}">
+                {% include 'product-for-grid.html' %}
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  {% endif %}
+{% endif %}

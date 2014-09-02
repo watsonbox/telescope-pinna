@@ -1,0 +1,175 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0;" />
+    <title>
+      {{ store.name }}
+
+      {% if category %}
+        - {{ category.name }}
+      {% elsif product %}
+        - {{ product.name }}
+      {% elsif page %}
+        - {{ page.title }}
+      {% endif %}
+    </title>
+
+  {% if category %}
+    <meta name="description" content="{{ category.description | strip_html | escape | strip_newlines }}"/>
+    <meta property="og:title" content="{{ category.name | escape }}"/>
+    <meta property="og:type" content="category"/>
+    <meta property="og:url" content="{{ store.url }}{{ category.url }}"/>
+    <meta property="og:site_name" content="{{ store.name }}"/>
+    <meta property="fb:admins" content="763253266"/>
+  {% elsif news and item %}
+    <meta name="description" content="{{ item.body | strip_html | escape | strip_newlines }}"/>
+    <meta property="og:title" content="{{ item.title | escape }}"/>
+    <meta property="og:description" content="{{ item.body | strip_html | escape | strip_newlines }}"/>
+    <meta property="og:type" content="news"/>
+    <meta property="og:url" content="{{ store.url }}{{ item.url }}"/>
+    <meta property="og:site_name" content="{{ store.name }}"/>
+    <meta property="fb:admins" content="763253266"/>
+  {% elsif product %}
+    <meta name="description" content="{{ product.description | strip_html | escape | strip_newlines }}"/>
+    <meta property="og:title" content="{{ product.name | escape }}"/>
+    <meta property="og:description" content="{{ product.description | strip_html | escape | strip_newlines }}"/>
+    <meta property="og:type" content="product"/>
+    <meta property="og:url" content="{{ store.url }}{{ product.url }}"/>
+    <meta property="og:image" content="{% if product.images.size > 0 %}{{ product.images.first.v600_url }}{% endif %}"/>
+    <meta property="og:site_name" content="{{ store.name }}"/>
+    <meta property="fb:admins" content="763253266"/>
+  {% else %}
+    <meta property="og:title" content="{{ store.name }}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="{{ store.url }}"/>
+    <meta property="og:site_name" content="{{ store.name }}"/>
+    <meta property="fb:admins" content="763253266"/>
+  {% endif %}
+
+  {% if store.news %}
+    <link rel="alternate" type="application/atom+xml" title="{{ store.name }} - {{ store.news.title }} Feed" href="{{ store.url }}{{ store.news.url }}.xml"/>
+  {% endif %}
+
+    {{ config['favicon_image_url'] | favicon_tag }}
+
+    <link href="http://d38hlclas8yf9g.cloudfront.net/normalize-818790cf059fac69a61f5ae15cc5f22a.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="http://d38hlclas8yf9g.cloudfront.net/foundation-3c4b77ac84767f13b1819600d9e4c039.min.css" media="screen" rel="stylesheet" type="text/css"/>
+    {{ 'default.css' | asset_url | stylesheet_tag: 'screen' }}
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" media="screen" rel="stylesheet" type="text/css"/>
+
+    <script src="http://d38hlclas8yf9g.cloudfront.net/modernizr-9f855c3ee731604cad22f5ee7047033f.js"></script>
+
+  {% if config['google_analytics_id'] %}
+    <script type="text/javascript">
+      try {
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', '{{ config['google_analytics_id'] }}']);
+        _gaq.push(['_setDomainName', window.location.host]);
+        _gaq.push(['_trackPageview']);
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+      } catch(e){}
+    </script>
+  {% endif %}
+  </head>
+  <body>
+    <div class="contain-to-grid fixed">
+      <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+          <li class="name">
+            <h1><a href="/">{% if config['navigation_store_link_icon'] != null and config['navigation_store_link_icon'] != '' %}<img src="{{ config['navigation_store_link_icon'] }}"/>{% else %}{{ store.name }}{% endif %}</a></h1>
+          </li>
+          <li class="toggle-topbar menu-icon">
+            <a href="#"><span></span></a>
+          </li>
+        </ul>
+
+        <section class="top-bar-section">
+          <ul class="left">
+            {% if store.categories.size > 1 %}
+              <li class="has-dropdown">
+                <a href="/store">{{ config['navigation_store_link_name'] }}</a>
+                <ul class="dropdown">
+                  {% for category in store.categories %}
+                    <li>{{ category | link_to_category }}</li>
+                  {% endfor %}
+                </ul>
+              </li>
+            {% else %}
+              <li><a href="/store">{{ config['navigation_store_link_name'] }}</a></li>
+            {% endif %}
+
+            {% for page in store.pages %}
+              <li>{{ page | link_to_page }}</li>
+            {% endfor %}
+          </ul>
+
+          <ul class="right">
+            <li><a id="view-cart" onclick="javascript:Store.cart.show();">View Cart</a></li>
+          </ul>
+
+          <ul class="social right">
+            {% if config['social_facebook_url_displayed'] %}
+              <li><a href="{{ config['social_facebook_url'] }}" target="_blank"><i class="fa fa-lg fa-facebook"></i></a></li>
+            {% endif %}
+
+            {% if config['social_twitter_url_displayed'] %}
+              <li><a href="{{ config['social_twitter_url'] }}" target="_blank"><i class="fa fa-lg fa-twitter"></i></a></li>
+            {% endif %}
+
+            {% if config['social_tumblr_url_displayed'] %}
+              <li><a href="{{ config['social_tumblr_url'] }}" target="_blank"><i class="fa fa-lg fa-tumblr"></i></a></li>
+            {% endif %}
+
+            {% if config['social_youtube_url_displayed'] %}
+              <li><a href="{{ config['social_youtube_url'] }}" target="_blank"><i class="fa fa-lg fa-youtube"></i></a></li>
+            {% endif %}
+
+            {% if config['social_instagram_url_displayed'] %}
+              <li><a href="{{ config['social_instagram_url'] }}" target="_blank"><i class="fa fa-lg fa-instagram"></i></a></li>
+            {% endif %}
+          </ul>
+        </section>
+      </nav>
+    </div>
+
+    <div class="content-container">
+      <div>
+        {{ content }}
+      </div>
+    </div>
+
+    <div class="footer-container">
+      <div>
+        <div class="row">
+          <div class="large-12 columns">
+            <p>
+              &copy; {{ 'now' | date: "%Y" }} {{ store.name }} - {{ powered_by_link }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="http://d38hlclas8yf9g.cloudfront.net/foundation-ffa33444cd30dffe9d40400dd55aa643.min.js"></script>
+    <script>
+      $(document).foundation({
+        orbit: {
+          bullets: false,
+          navigation_arrows: false,
+          resume_on_mouseout: true,
+          slide_number: false
+        }
+      });
+    </script>
+
+    <!-- The following store.js script is required for every page. Do not remove it. -->
+    {{ store_script_tag }}
+    <!-- /store.js -->
+  </body>
+</html>

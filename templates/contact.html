@@ -1,0 +1,89 @@
+<div id="contact" class="row">
+  <div class="large-9 columns" role="content">
+    <div class="row">
+      <div class="large-12 columns">
+        <h4>{{ store.mailbox.title }}</h4>
+        <hr/>
+      </div>
+    </div>
+
+    {% comment %}
+      The below if / elsif is important to show the user whether their
+      message was successfully received or if there were any errors.
+    {% endcomment %}
+
+    {% if message.received %}
+      <div class="row">
+        <div class="large-12 columns">
+          <p>Thanks, we've received your message!</p>
+        </div>
+      </div>
+    {% elsif message.errors %}
+      <div class="row">
+        <div class="large-12 columns">
+          <p>There was a problem sending that message.</p>
+
+          <ul>
+            {% for error in message.errors %}
+              <li>{{ error }}.</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    {% endif %}
+
+    {% contact_form %}
+      {% comment %}
+        The contact_form tag has three required fields:
+          * message[name]
+          * message[email]
+          * message[body]
+
+        There is also an option field that you can add:
+          * message[subject]
+      {% endcomment %}
+
+      <div class="row">
+        <div class="large-12 columns">
+          <label>What's your name?</label>
+          <input type="text" name="message[name]" value="{{ message.name }}"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-12 columns">
+          <label>What's your email address?</label>
+          <input type="text" name="message[email]" value="{{ message.email }}"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-12 columns">
+          <textarea name="message[body]">{{ message.body }}</textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-12 columns">
+          {% comment %}
+            The below captcha tag is required for this contact form.
+
+            The follow themes are available:
+              * red
+              * white
+              * blackglass
+              * clean
+          {% endcomment %}
+
+          {% captcha clean %}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-12 columns">
+          <button class="button" type="submit">Send Message</button>
+        </div>
+      </div>
+    {% endcontact_form %}
+  </div>
+</div>

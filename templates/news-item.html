@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="large-9 columns" role="content">
+    <article>
+      <h3>{{ item | link_to_news_item }}</h3>
+      <h6>Posted on {{ item.published_at | date: "%B" }} {{ item.published_at | date: "%d" | ordinalize }}, {{ item.published_at | date: "%Y" }}</h6>
+
+      {{ item.body }}
+    </article>
+  </div>
+</div>

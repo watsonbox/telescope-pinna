@@ -1,0 +1,381 @@
+{
+  "name": "Telescope",
+  "description": "<p>A perfect responsive theme for customizing.</p><ul class=\"features\"><li>Responsive Design</li><li>Background Image Upload</li><li>Custom Color Pickers</li><li>Google Analytics</li><li>Social Links</li><li>Tweet &amp; Like Buttons</li><li>Related Products</li><li>All Site Modules</li></ul>",
+  "author": {
+    "name": "Limited Run",
+    "website": "http://limitedrun.com"
+  },
+  "sort": 12,
+  "images": [
+    {
+      "thumbnail": "https://d2hzwnl4ytplf6.cloudfront.net/themes/response-4-thumb.png",
+      "original": "https://d2hzwnl4ytplf6.cloudfront.net/themes/response-4.png"
+    },
+    {
+      "thumbnail": "https://d2hzwnl4ytplf6.cloudfront.net/themes/response-5-thumb.png",
+      "original": "https://d2hzwnl4ytplf6.cloudfront.net/themes/response-5.png"
+    }
+  ],
+  "settings": {
+    "favicon_image_url": {
+      "format": "image",
+      "content_type": true,
+      "label": "Favicon Image URL",
+      "help": "Enter an image URL or choose an image file to upload.",
+      "placeholder": "http://",
+      "position": 0
+    },
+
+    "google_analytics_id": {
+      "format": "text",
+      "label": "Google Analytics Tracking ID",
+      "placeholder": "UA-XXXXXXXX-X",
+      "position": 1
+    },
+
+    "navigation_store_link_name": {
+      "format": "text",
+      "label": "Navigation Store Link Name",
+      "default": "Store",
+      "position": 2
+    },
+    "navigation_store_link_icon": {
+      "format": "image",
+      "label": "Navigation Store Link Icon",
+      "help": "Enter an image URL or choose an image file to upload.",
+      "placeholder": "http://",
+      "position": 3
+    },
+
+    "social_facebook_url_displayed": {
+      "format": "boolean",
+      "label": "Display Facebook Icon",
+      "default": true,
+      "position": 4
+    },
+    "social_facebook_url": {
+      "format": "text",
+      "label": "Facebook URL",
+      "default": "http://facebook.com/username",
+      "position": 5
+    },
+    "social_twitter_url_displayed": {
+      "format": "boolean",
+      "label": "Display Twitter Icon",
+      "default": true,
+      "position": 6
+    },
+    "social_twitter_url": {
+      "format": "text",
+      "label": "Twitter URL",
+      "default": "http://twitter.com/username",
+      "position": 7
+    },
+    "social_tumblr_url_displayed": {
+      "format": "boolean",
+      "label": "Display Tumblr Icon",
+      "default": true,
+      "position": 8
+    },
+    "social_tumblr_url": {
+      "format": "text",
+      "label": "Tumblr URL",
+      "default": "http://username.tumblr.com",
+      "position": 9
+    },
+    "social_youtube_url_displayed": {
+      "format": "boolean",
+      "label": "Display YouTube Icon",
+      "default": true,
+      "position": 10
+    },
+    "social_youtube_url": {
+      "format": "text",
+      "label": "YouTube URL",
+      "default": "http://youtube.com/username",
+      "position": 11
+    },
+    "social_instagram_url_displayed": {
+      "format": "boolean",
+      "label": "Display Instagram Icon",
+      "default": true,
+      "position": 12
+    },
+    "social_instagram_url": {
+      "format": "text",
+      "label": "Instagram URL",
+      "default": "http://instagram.com/username",
+      "position": 13
+    },
+
+    "hero_images_displayed": {
+      "format": "boolean",
+      "label": "Display Featured Images on Front Page",
+      "default": true,
+      "position": 14
+    },
+    "hero_images_displayed_on_category_pages": {
+      "format": "boolean",
+      "label": "Display Features Images on Category Pages",
+      "default": false,
+      "position": 15
+    },
+    "hero_image_0": {
+      "format": "image",
+      "label": "First Featured Image (1000px Width, Any Height)",
+      "default": "http://d38hlclas8yf9g.cloudfront.net/featured-image-placeholder-blue.png",
+      "help": "Enter an image URL or choose an image file to upload.",
+      "placeholder": "http://",
+      "position": 16
+    },
+    "hero_link_0": {
+      "format": "text",
+      "label": "First Featured Image URL",
+      "position": 17
+    },
+    "hero_image_1": {
+      "format": "image",
+      "label": "Second Featured Image (1000px Width, Any Height)",
+      "default": "http://d38hlclas8yf9g.cloudfront.net/featured-image-placeholder-blue.png",
+      "help": "Enter an image URL or choose an image file to upload.",
+      "placeholder": "http://",
+      "position": 18
+    },
+    "hero_link_1": {
+      "format": "text",
+      "label": "Second Featured Image URL",
+      "position": 19
+    },
+    "hero_image_2": {
+      "format": "image",
+      "label": "Third Featured Image (1000px Width, Any Height)",
+      "default": "http://d38hlclas8yf9g.cloudfront.net/featured-image-placeholder-blue.png",
+      "help": "Enter an image URL or choose an image file to upload.",
+      "placeholder": "http://",
+      "position": 20
+    },
+    "hero_link_2": {
+      "format": "text",
+      "label": "Third Featured Image URL",
+      "position": 21
+    },
+
+    "featured_category_slug_0": {
+      "format": "text",
+      "label": "First Featured Category Slug",
+      "position": 22
+    },
+    "featured_category_slug_1": {
+      "format": "text",
+      "label": "Second Featured Category Slug",
+      "position": 23
+    },
+    "featured_category_slug_2": {
+      "format": "text",
+      "label": "Third Featured Category Slug",
+      "position": 24
+    },
+    "default-category-heading-text": {
+      "format": "text",
+      "label": "Default Category Heading Text",
+      "default": "Latest Products",
+      "position": 25
+    },
+
+    "soundcloud_player_color": {
+      "format": "color",
+      "default": "#2ba6cb",
+      "label": "SoundCloud Player Color",
+      "position": 26
+    },
+
+    "select-one-option-text": {
+      "format": "text",
+      "label": "Select One Default Text",
+      "default": "Select one...",
+      "position": 27
+    },
+    "add-to-cart-button-text": {
+      "format": "text",
+      "label": "Add to Cart Button Text",
+      "default": "Add to Cart",
+      "position": 28
+    },
+
+    "display_related_products_by_category_on_product_pages": {
+      "format": "boolean",
+      "default": true,
+      "label": "Display Related Products on Product Pages",
+      "position": 29
+    },
+
+    "embed_google_maps_on_event_pages": {
+      "format": "boolean",
+      "default": true,
+      "label": "Embed Google Maps on Ticket Pages",
+      "position": 30
+    },
+
+    "display_image_borders": {
+      "format": "boolean",
+      "label": "Display Image Borders",
+      "default": false,
+      "position": 31
+    },
+
+    "link_color": {
+      "format": "color",
+      "default": "#2ba6cb",
+      "label": "Link Color",
+      "position": 32
+    },
+    "link_hover_color": {
+      "format": "color",
+      "default": "#2795b6",
+      "label": "Link Hover Color",
+      "position": 33
+    },
+
+    "button_color": {
+      "format": "color",
+      "default": "#2ba6cb",
+      "label": "Button Color",
+      "position": 34
+    },
+    "button_border_color": {
+      "format": "color",
+      "default": "#2795b6",
+      "label": "Button Border Color",
+      "position": 35
+    },
+    "button_font_color": {
+      "format": "color",
+      "default": "#ffffff",
+      "label": "Button Font Color",
+      "position": 36
+    },
+    "button_hover_color": {
+      "format": "color",
+      "default": "#2795b6",
+      "label": "Button Hover Color",
+      "position": 37
+    },
+    "button_border_hover_color": {
+      "format": "color",
+      "default": "#2795b6",
+      "label": "Button Border Hover Color",
+      "position": 38
+    },
+    "button_font_hover_color": {
+      "format": "color",
+      "default": "#ffffff",
+      "label": "Button Font Hover Color",
+      "position": 39
+    },
+
+    "content_background_color": {
+      "format": "color",
+      "default": "#ffffff",
+      "label": "Content Background Color",
+      "position": 40
+    },
+    "content_background_image_url": {
+      "format": "image",
+      "label": "Content Background Image URL (<a href=\"http://help.limitedrun.com/articles/187-background-image-sizing\" target=\"_blank\">What size should I upload?</a>)",
+      "placeholder": "http://",
+      "position": 41
+    },
+    "content_background_image_repeat": {
+      "format": "boolean",
+      "label": "Tile Content Background Image",
+      "default": false,
+      "position": 42
+    },
+    "content_background_image_center_top": {
+      "format": "boolean",
+      "label": "Center Content Background Image",
+      "default": true,
+      "position": 43
+    },
+    "content_background_image_visible_behind_footer": {
+      "format": "boolean",
+      "label": "Display Content Background Image Behind Footer",
+      "default": false,
+      "position": 44
+    },
+    "content_inner_background_color": {
+      "format": "color",
+      "default": "rgba(255, 255, 255, 0.85)",
+      "label": "Content Inner Background Color",
+      "position": 45
+    },
+    "content_inner_font_color": {
+      "format": "color",
+      "default": "#222222",
+      "label": "Content Inner Font Color",
+      "position": 46
+    },
+
+    "pagination_background_color": {
+      "format": "color",
+      "default": "transparent",
+      "label": "Pagination Background Color",
+      "position": 47
+    },
+    "pagination_font_color": {
+      "format": "color",
+      "default": "#999999",
+      "label": "Pagination Font Color",
+      "position": 48
+    },
+    "pagination_background_hover_color": {
+      "format": "color",
+      "default": "#e6e6e6",
+      "label": "Pagination Background Hover Color",
+      "position": 49
+    },
+    "pagination_font_hover_color": {
+      "format": "color",
+      "default": "#999999",
+      "label": "Pagination Font Hover Color",
+      "position": 50
+    },
+    "pagination_current_background_color": {
+      "format": "color",
+      "default": "#2ba6cb",
+      "label": "Pagination Current Background Color",
+      "position": 51
+    },
+    "pagination_current_font_color": {
+      "format": "color",
+      "default": "#ffffff",
+      "label": "Pagination Current Font Color",
+      "position": 52
+    },
+
+    "footer_background_color": {
+      "format": "color",
+      "default": "#333333",
+      "label": "Footer Background Color (When Background Image Hides Behind Footer)",
+      "position": 53
+    },
+    "footer_font_color": {
+      "format": "color",
+      "default": "#ffffff",
+      "label": "Footer Font Color",
+      "position": 54
+    },
+    "footer_link_color": {
+      "format": "color",
+      "default": "#f9f9f9",
+      "label": "Footer Link Color",
+      "position": 55
+    },
+    "footer_link_hover_color": {
+      "format": "color",
+      "default": "#ffffff",
+      "label": "Footer Link Hover Color",
+      "position": 56
+    }
+  }
+}

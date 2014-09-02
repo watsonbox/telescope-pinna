@@ -1,0 +1,45 @@
+<div class="history-item row">
+  <div class="large-4 columns">
+    <ul data-orbit>
+      {% if item.images.size > 0 %}
+        {% for image in item.images %}
+          <li>
+            <a href="{{ image.url }}" target="_blank">
+              <img src="{{ item.images.first.v300_url }}"/>
+            </a>
+          </li>
+        {% endfor %}
+      {% else %}
+        <li>
+          <img src="https://d38hlclas8yf9g.cloudfront.net/product-image-placeholder-300.png"/>
+        </li>
+      {% endif %}
+    </ul>
+  </div>
+
+  <div class="large-8 columns">
+    {% if display_name %}
+      <h5>
+        {% if item.catalog_number != '' %}
+          <a href="{{ item.url }}">
+            {{ item.name }}
+          </a>
+        {% else %}
+          {{ item.name }}
+        {% endif %}
+      </h5>
+    {% endif %}
+
+    <p class="release-information">
+      {{ item.release_information | join: ' &middot; ' }}
+    </p>
+
+    {{ item.description | simple_format }}
+
+    <ul class="links inline-list">
+      {% for link in item.links %}
+        <li><a href="{{ link.url }}">{{ link.name }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

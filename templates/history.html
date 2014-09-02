@@ -1,0 +1,36 @@
+{% if item %}
+  {% assign display_name = false %}
+
+  <div id="history" class="row">
+    <div class="large-12 columns">
+      <h4>{{ item.name }}</h4>
+      <hr/>
+
+      {% include 'history-item-for-list.html' %}
+    </div>
+  </div>
+
+{% else %}
+  {% assign display_name = true %}
+
+  {% paginate history.items by 30 %}
+    <div id="history" class="row">
+      <div class="large-12 columns">
+        <h4>{{ history.title }}</h4>
+        <hr/>
+
+        {% for item in history.items %}
+          {% include 'history-item-for-list.html' %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <div class="pagination-centered">
+          {{ history.items_pagination }}
+        </div>
+      </div>
+    </div>
+  {% endpaginate %}
+{% endif %}

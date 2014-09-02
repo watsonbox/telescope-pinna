@@ -1,0 +1,26 @@
+{% paginate gallery.items by 24 %}
+  <div id="gallery" class="row">
+    <div class="large-12 columns">
+      <h4>{{ gallery.title }}</h4>
+      <hr/>
+
+      <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+        {% for item in gallery.items %}
+          <li>
+            <a class="th" href="{{ item.url }}">
+              <img src="{{ item.v200_url }}"/>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="pagination-centered">
+        {{ gallery.items_pagination }}
+      </div>
+    </div>
+  </div>
+{% endpaginate %}

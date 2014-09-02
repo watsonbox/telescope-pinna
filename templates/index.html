@@ -1,0 +1,130 @@
+{% if config['hero_images_displayed'] %}
+  <div class="row">
+    <div class="large-12 columns">
+      <ul data-orbit>
+        <li>
+          {% if config['hero_link_0'] %}
+            <a href="{{ config['hero_link_0'] }}">
+              <img src="{{ config['hero_image_0'] }}"/>
+            </a>
+          {% else %}
+            <img src="{{ config['hero_image_0'] }}"/>
+          {% endif %}
+        </li>
+
+        {% if config['hero_image_1'] != 'http://d38hlclas8yf9g.cloudfront.net/featured-image-placeholder-blue.png' %}
+          <li>
+            {% if config['hero_link_1'] %}
+              <a href="{{ config['hero_link_1'] }}">
+                <img src="{{ config['hero_image_1'] }}"/>
+              </a>
+            {% else %}
+              <img src="{{ config['hero_image_1'] }}"/>
+            {% endif %}
+          </li>
+        {% endif %}
+
+        {% if config['hero_image_2'] != 'http://d38hlclas8yf9g.cloudfront.net/featured-image-placeholder-blue.png' %}
+          <li>
+            {% if config['hero_link_2'] %}
+              <a href="{{ config['hero_link_2'] }}">
+                <img src="{{ config['hero_image_2'] }}"/>
+              </a>
+            {% else %}
+              <img src="{{ config['hero_image_2'] }}"/>
+            {% endif %}
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+{% endif %}
+
+{% if config['featured_category_slug_0'] %}
+  {% assign featured_category_0 = store.category_by_slug[config['featured_category_slug_0']] %}
+
+  {% if featured_category_0 %}
+    <div class="row">
+      <div class="large-12 columns">
+        <h4>{{ featured_category_0.name }} <a class="right" href="{{ featured_category_0.url }}">View All</a></h4>
+        <hr/>
+
+        <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+          {% for product in featured_category_0.products limit:8 %}
+            <li class="{% if forloop.index > 6 %}show-for-large-up{% elsif forloop.index > 4 %}show-for-medium-up{% endif %}">
+              {% include 'product-for-grid.html' %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if config['featured_category_slug_1'] %}
+    {% assign featured_category_1 = store.category_by_slug[config['featured_category_slug_1']] %}
+
+    {% if featured_category_1 %}
+      <div class="row">
+        <div class="large-12 columns">
+          <h4>{{ featured_category_1.name }} <a class="right" href="{{ featured_category_1.url }}">View All</a></h4>
+          <hr/>
+
+          <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+            {% for product in featured_category_1.products limit:4 %}
+              <li class="{% if forloop.index > 3 %}show-for-large-up{% elsif forloop.index > 2 %}show-for-medium-up{% endif %}">
+                {% include 'product-for-grid.html' %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    {% endif %}
+  {% endif %}
+
+  {% if config['featured_category_slug_2'] %}
+    {% assign featured_category_2 = store.category_by_slug[config['featured_category_slug_2']] %}
+
+    {% if featured_category_2 %}
+      <div class="row">
+        <div class="large-12 columns">
+          <h4>{{ featured_category_2.name }} <a class="right" href="{{ featured_category_2.url }}">View All</a></h4>
+          <hr/>
+
+          <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+            {% for product in featured_category_2.products limit:4 %}
+              <li class="{% if forloop.index > 3 %}show-for-large-up{% elsif forloop.index > 2 %}show-for-medium-up{% endif %}">
+                {% include 'product-for-grid.html' %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    {% endif %}
+  {% endif %}
+
+{% else %}
+  {% paginate store.products by 24 %}
+    <div class="row">
+      <div class="large-12 columns">
+        <h4>{{ config['default-category-heading-text'] }}</h4>
+        <hr/>
+  
+        <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+          {% for product in store.products %}
+            <li>
+              {% include 'product-for-grid.html' %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <div class="pagination-centered">
+          {{ category.products_pagination }}
+        </div>
+      </div>
+    </div>
+  {% endpaginate %}
+{% endif %}
