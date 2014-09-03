@@ -47,3 +47,7 @@ get '/stylesheets/:file' do
   css = File.read(File.join(ThemeKit::PATHS[:stylesheets], params[:file]))
   Liquid::Template.parse(css).render('config' => ThemeKit.config)
 end
+
+get '/stylesheets/fonts/:file' do
+  send_file File.join(ThemeKit::PATHS[:stylesheets], 'fonts', params[:file])
+end
