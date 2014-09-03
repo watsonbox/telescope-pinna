@@ -1,0 +1,84 @@
+{
+  "name": "Pinna Records",
+  "mailbox": {
+    "title": "Contact"
+  },
+  "products": [
+    {
+      "name": "Eliane Lust - Entangoed",
+      "description": "<p>Six tangos for piano solo performed by Eliane Lust.</p><p>1. Robert Elkjer: En-tango-ed</p><p>2. Erwin Schulhoff: 5 études de jazz, IV: Tango</p><p>3. Scott Pender: Tango: Ms. Jackson Dances for the People</p><p>4. William Schimmel: Fromage Dangereux</p><p>5. Frederic Rzewski: Steptangle</p><p>6. Dane Rudhyar: Tango d'Antan</p>",
+      "url": "/products/entangoed",
+      "images": [
+        {
+          "v200_url": "http://s0.limitedrun.com/images/1085790/v200_pinna-1-cover.jpg",
+          "v600_url": "http://s0.limitedrun.com/images/1085790/v600_pinna-1-cover.jpg"
+        }
+      ],
+      "variations": [
+        {
+          "available?": true
+        }
+      ],
+      "available?": true,
+      "price_range": "$20.00",
+      "soundcloud_playlist_id": 49270298,
+      "custom": {
+        "title": "",
+        "banner-text": "",
+        "subtitle": ""
+      }
+    }
+  ],
+  "categories": [
+    "Catalog"
+  ],
+  "pages": [
+    {
+      "title": "News",
+      "path": "/news"
+    },
+    {
+      "title": "Artists",
+      "path": "/artists"
+    },
+    {
+      "title": "Contact",
+      "path": "/contact"
+    }
+  ],
+  "roster": {
+    "title": "Artists",
+    "items": [
+      {
+        "name": "Eliane Lust",
+        "url": "/artists/eliane",
+        "description": "<p>Internationally acclaimed American concert pianist Eliane Lust was raised in Belgium, where she began playing piano at age 5. As a girl, she performed the music of Darius Milhaud for the composer; it was Milhaud who suggested that she should go into music professionally. Through her principle teachers, Leonard Shure and György Sebök, she is tied directly to the great classical German and Hungarian musical traditions of Ludwig van Beethoven and Franz Liszt. She has collaborated with many contemporary composers, including John Cage, Leon Kirchner and Frederic Rzewski.</p>",
+        "images": [
+          {
+            "url": "http://s0.limitedrun.com/images/1085941/ElianeLust_11-2936.jpg",
+            "v200_url": "http://s0.limitedrun.com/images/1085941/v200_ElianeLust_11-2936.jpg"
+          }
+        ],
+        "links": [
+          {
+            "name": "Website",
+            "url": "http://elianelust.com/"
+          },
+          {
+            "name": "Facebook",
+            "url": "https://www.facebook.com/ElianeLu"
+          }
+        ]
+      }
+    ]
+  },
+  "news": {
+    "items": [
+      {
+        "name": "News Story",
+        "published_at": "02-09-2014",
+        "body": "This is the news item"
+      }
+    ]
+  }
+}
