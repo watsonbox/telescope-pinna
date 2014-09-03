@@ -1,11 +1,33 @@
-Store
------
-[Pinna](http://pinna.limitedrun.com)
+# Pinna Records Limited Run Theme
 
-Theme
-------
-[telescope-pinna](http://pinna.limitedrun.com/admin/storefront/themes/1977)
+[http://www.pinnarecords.com/](http://www.pinnarecords.com/)
+~
+[http://limitedrun.com/](http://limitedrun.com/)
 
-Exported
---------
-2014-09-02 11:15:54 UTC
+Based on the Telescope theme. Includes a Sinatra-based webapp for working with the theme offline.
+
+
+## Usage
+
+Install the required gems:
+
+```bash
+$ bundle install
+```
+
+Run the theme locally with:
+
+```bash
+$ ruby themekit.rb
+```
+
+
+## Configuration
+
+Edit `store.json` to modify store data. Reloaded on every request.
+
+
+## Todo
+
+* Pagination
+* SASS compilation
