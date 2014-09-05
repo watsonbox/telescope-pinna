@@ -21,13 +21,18 @@ class ThemeKit
       @store = Hashie::Mash.new(JSON.parse(File.read('store.json')))
     end
 
-    # Load default values from theme configuration file
+    # Load default values from theme configuration file,
+    # then add any locally configured values from store config if loaded
     def load_config
       settings = JSON.parse(File.read(File.join(PATHS[:configs], 'default.json')))['settings']
       config = {}
 
       settings.each do |k, v|
         config[k] = v['default'] if v['default']
+      end
+
+      if store && store.config
+        store.config.each { |k, v| config[k] = v }
       end
 
       @config = config
