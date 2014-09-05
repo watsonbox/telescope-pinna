@@ -178,10 +178,19 @@
     "default-category-heading-text": {
       "format": "text",
       "label": "Default Category Heading Text",
-      "default": "Latest Products",
+      "default": "Recent Releases",
       "position": 25
     },
 
+    "home-page-soundcloud-playlist-id": {
+      "format": "text",
+      "label": "Home page Soundcloud Playlist ID"
+    },
+    "home-page-soundcloud-title": {
+      "format": "text",
+      "label": "Home page Soundcloud Section Title",
+      "default": "Listen"
+    },
     "soundcloud_player_color": {
       "format": "color",
       "default": "#2ba6cb",
@@ -311,7 +320,7 @@
     },
     "content_inner_font_color": {
       "format": "color",
-      "default": "#222222",
+      "default": "#222",
       "label": "Content Inner Font Color",
       "position": 46
     },

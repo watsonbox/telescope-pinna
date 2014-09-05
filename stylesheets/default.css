@@ -258,6 +258,14 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   color: {{ config['content_inner_font_color'] }};
+  font-family: 'Gotham-Light';
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+h4 {
+  margin-top: 20px;
+  font-size: 24px;
 }
 
 .row {
@@ -272,6 +280,7 @@ h1, h2, h3, h4, h5, h6 {
   {% else %}
     background-color: {{ config['content_background_color'] }};
   {% endif %}
+  padding-bottom: 100px;
 }
 
 .content-container > div {
@@ -289,6 +298,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .content-container h1 + hr, .content-container h2 + hr, .content-container h3 + hr, .content-container h4 + hr, .content-container h5 + hr {
   margin-top: 0;
+  border-color: #222;
 }
 
 .footer-container {
@@ -386,6 +396,10 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.product .panel-info {
+  display: none;
 }
 
 .product .panel-info div + div {
