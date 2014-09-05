@@ -106,6 +106,21 @@
   {% paginate store.products by 4 %}
     <div class="row">
       <div class="large-7 columns">
+        <h4>News</h4>
+        <hr/>
+
+        {% for item in store.news.items %}
+          {% if forloop.index > 1 %}
+            <hr/>
+          {% endif %}
+
+          <article class="news">
+            <h5>{{ item.published_at | date: "%B" }} {{ item.published_at | date: "%d" | ordinalize }}, {{ item.published_at | date: "%Y" }}</h5>
+            <h6>{{ item | link_to_news_item }}</h6>
+
+            {{ item.body }}
+          </article>
+        {% endfor %}
       </div>
       <div class="large-5 columns">
         <h4>{{ config['default-category-heading-text'] }}</h4>

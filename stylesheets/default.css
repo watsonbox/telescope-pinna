@@ -190,7 +190,7 @@ nav.pagination span {
 .top-bar-section ul li > a {
   font-weight: normal;
   font-family: 'Gotham-Book';
-  font-size: 12px;
+  font-size: 13px;
   text-transform: uppercase;
   color: #000;
 }
@@ -201,7 +201,7 @@ nav.pagination span {
 
 @media only screen and (min-width: 40.063em) {
   .top-bar-section {
-    margin-top: 91px;
+    margin-top: 92px;
   }
 
   .top-bar-section .social li a {
@@ -254,9 +254,14 @@ body {
     background-color: {{ config['footer_background_color'] }};
   {% endif %}
   color: {{ config['content_inner_font_color'] }};
+  font: normal normal 13px/17px 'Gotham-Light';
 }
 
-h1, h2, h3, h4, h5, h6 {
+p {
+  font: normal normal 13px/17px 'Gotham-Light';
+}
+
+h1, h2, h3, h4 {
   color: {{ config['content_inner_font_color'] }};
   font-family: 'Gotham-Light';
   text-transform: uppercase;
@@ -265,7 +270,22 @@ h1, h2, h3, h4, h5, h6 {
 
 h4 {
   margin-top: 20px;
-  font-size: 24px;
+  font-size: 25px;
+}
+
+h5 {
+  color: {{ config['content_inner_font_color'] }};
+  font: normal normal 13px/17px 'Gotham-Medium';
+  text-transform: uppercase;
+}
+
+h6 {
+  color: {{ config['content_inner_font_color'] }};
+  font: normal normal 18px/24px 'Gotham-Light';
+}
+
+hr {
+  border-color: #c0c2c2;
 }
 
 .row {
@@ -640,6 +660,13 @@ h4 {
 
 #event .add-to-cart-container {
 
+}
+
+
+/* News */
+article.news {
+  margin-top: 30px;
+  margin-bottom: 40px;
 }
 
 
