@@ -153,6 +153,23 @@ nav.pagination span {
     box-shadow: none; }
 {% endunless %}
 
+.contain-to-grid {
+  background-color: #fff;
+}
+
+.contain-to-grid .top-bar {
+  max-width: 1030px;
+  background-color: #fff;
+}
+
+.top-bar .name h1 a {
+  color: #000;
+}
+
+.top-bar.expanded .title-area {
+  background-color: #fff;
+}
+
 .top-bar .title-area .name h1 a img {
   height: auto;
   margin-top: -2px;
@@ -161,22 +178,69 @@ nav.pagination span {
   width: auto;
 }
 
+.top-bar-section li a:not(.button) {
+  background-color: #fff;
+}
+
+.top-bar-section li a:not(.button):hover {
+  background-color: #fff;
+  color: #000;
+}
+
 .top-bar-section ul li > a {
   font-weight: normal;
   font-family: 'Gotham-Book';
   font-size: 12px;
   text-transform: uppercase;
-  color: '#222';
+  color: #000;
+}
+
+.top-bar .toggle-topbar.menu-icon a {
+  color: #000;
 }
 
 @media only screen and (min-width: 40.063em) {
+  .top-bar-section {
+    margin-top: 91px;
+  }
+
   .top-bar-section .social li a {
     padding: 0 7px;
+  }
+
+  .top-bar-section .social li a .fa-lg {
+    font-size: 1.7em;
   }
 
   h1 a.right, h2 a.right, h3 a.right, h4 a.right, h5 a.right {
     font-size: 0.5em;
     margin-top: 1.5em;
+  }
+
+  .top-bar {
+    height: 140px;
+  }
+
+  .top-bar .title-area .name {
+    height: 140px;
+    margin-right: 20px;
+  }
+
+  .top-bar .title-area .name h1 a img {
+    height: auto;
+    margin-top: 18px;
+    max-height: 100px;
+    max-width: 88px;
+    width: auto;
+  }
+
+  .top-bar-section .left li a:not(.button) {
+    padding: 0 20px;
+    border-bottom: 4px solid transparent;
+  }
+
+  .top-bar-section .left li a:not(.button):hover {
+    border-bottom: 4px solid #6c7a89;
   }
 }
 
@@ -196,6 +260,10 @@ h1, h2, h3, h4, h5, h6 {
   color: {{ config['content_inner_font_color'] }};
 }
 
+.row {
+  max-width: 1030px;
+}
+
 .content-container {
   {% if config['content_background_image_visible_behind_footer'] %}
     background-color: transparent;
@@ -209,8 +277,8 @@ h1, h2, h3, h4, h5, h6 {
 .content-container > div {
   background-color: {{ config['content_inner_background_color'] }};
   margin: 0 auto;
-  padding: 1.1875rem 0;
-  max-width: 58em;
+  padding: 0;
+  max-width: 1030px;
   width: 100%;
 }
 
@@ -230,7 +298,7 @@ h1, h2, h3, h4, h5, h6 {
 .footer-container > div {
   margin: 0 auto;
   padding: 1.1875rem 0;
-  max-width: 58em;
+  max-width: 1030px;
   width: 100%;
 }
 

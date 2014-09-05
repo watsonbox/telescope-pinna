@@ -36,7 +36,7 @@
     "navigation_store_link_name": {
       "format": "text",
       "label": "Navigation Store Link Name",
-      "default": "Store",
+      "default": "Catalog",
       "position": 2
     },
     "navigation_store_link_icon": {
@@ -74,7 +74,7 @@
     "social_tumblr_url_displayed": {
       "format": "boolean",
       "label": "Display Tumblr Icon",
-      "default": true,
+      "default": false,
       "position": 8
     },
     "social_tumblr_url": {
@@ -98,7 +98,7 @@
     "social_instagram_url_displayed": {
       "format": "boolean",
       "label": "Display Instagram Icon",
-      "default": true,
+      "default": false,
       "position": 12
     },
     "social_instagram_url": {
@@ -275,7 +275,7 @@
 
     "content_background_color": {
       "format": "color",
-      "default": "#ffffff",
+      "default": "#f5f7f8",
       "label": "Content Background Color",
       "position": 40
     },
@@ -305,7 +305,7 @@
     },
     "content_inner_background_color": {
       "format": "color",
-      "default": "rgba(255, 255, 255, 0.85)",
+      "default": "#f5f7f8",
       "label": "Content Inner Background Color",
       "position": 45
     },
