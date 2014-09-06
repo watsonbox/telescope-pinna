@@ -828,12 +828,16 @@ article.news {
 
 }
 
+#roster-item h5 {
+  margin-top: 10px;
+}
+
 #roster-item #description p {
-  font-size: 0.9rem;
+  font-size: 12px;
 }
 
 #roster-item #links .inline-list a {
-  font-size: 0.9rem;
+  font-size: 12px;
 }
 
 #roster-item #soundcloud iframe {
