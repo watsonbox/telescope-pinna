@@ -115,8 +115,8 @@
           {% endif %}
 
           <article class="news">
-            <h5>{{ item.published_at | date: "%B" }} {{ item.published_at | date: "%d" | ordinalize }}, {{ item.published_at | date: "%Y" }}</h5>
-            <h6>{{ item | link_to_news_item }}</h6>
+            <h6>{{ item.published_at | date: "%B" }} {{ item.published_at | date: "%d" | ordinalize }}, {{ item.published_at | date: "%Y" }}</h5>
+            <p class="subheading">{{ item | link_to_news_item }}</p>
 
             {{ item.body }}
           </article>
