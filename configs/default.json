@@ -370,13 +370,13 @@
     },
     "footer_font_color": {
       "format": "color",
-      "default": "#ffffff",
+      "default": "#f5f7f8",
       "label": "Footer Font Color",
       "position": 54
     },
     "footer_link_color": {
       "format": "color",
-      "default": "#f9f9f9",
+      "default": "#919ba7",
       "label": "Footer Link Color",
       "position": 55
     },
@@ -385,6 +385,21 @@
       "default": "#ffffff",
       "label": "Footer Link Hover Color",
       "position": 56
+    },
+    "footer_about_us_text": {
+      "type": "text",
+      "label": "Footer About Us Text",
+      "default": "<p>Pinna Records, based in San Francisco, California, is a new label that releases music by contemporary composers. We believe, with <a href=\"http://www.kylegann.com\">Kyle Gann</a>, that \"brand-new music can sometimes be joyous, clear, seductive, ingratiating, and/or simple, and still well-worth listening to and exploring.\"</p><p>The <i>pinna</i> is the visible part of the ear. It acts as a funnel, amplifying and directing sound to the auditory canal. Like a fingerprint, it is unique to the individual; similarly, our ears, rather than any specific agenda, guide our decisions about what to record and release.</p><p>The label was founded by producer <a href=\"http://about.me/rogerrohrbach\">Roger Rohrbach</a> in 2013, and launched with pianist <a href=\"http://elianelust.com\">Eliane Lust</a>'s \"wonderful and imaginatively-conceived\" <i><a href=\"http://www.pinnarecords.com/entangoed\">Entangoed</a></i>.</p>"
+    },
+    "footer_newsletter_text": {
+      "type": "text",
+      "label": "Footer Newsletter Text",
+      "default": "Sign up to receive our newsletter, sent just a few times a year. We'll let you know about new releases, and keep you up to date with the doings of our composers and performers."
+    },
+    "footer_copyright_text": {
+      "type": "text",
+      "label": "Footer Copyright Text",
+      "default": "Pinna Records. All Rights Reserved. Design by <a href=\"http://www.yannnovak.com/\">Yann Novak Design</a>. Built with <a href=\"http://limitedrun.com/?ref=store\">Limited Run</a>."
     }
   }
 }

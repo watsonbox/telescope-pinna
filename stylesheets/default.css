@@ -258,7 +258,7 @@ body {
 }
 
 p {
-  font: normal normal 13px/17px 'Gotham-Light';
+  font: normal normal 13px/20px 'Gotham-Light';
 }
 
 h1, h2, h3, h4 {
@@ -332,9 +332,16 @@ hr {
   width: 100%;
 }
 
-.footer-container p, .footer-container ul {
+.footer-container p, .footer-container ul, .footer-container h4, .footer-container hr {
   color: {{ config['footer_font_color'] }};
-  font-size: 0.75rem;
+}
+
+.footer-container h4 {
+  font-size: 19px;
+}
+
+.footer-container hr {
+  margin-top: 10px;
 }
 
 .footer-container a {
@@ -343,6 +350,27 @@ hr {
 
 .footer-container a:hover {
   color: {{ config['footer_link_hover_color'] }};
+}
+
+p.copyright {
+  font-size: 12px;
+}
+
+
+/* Newsletter Footer */
+
+.footer-container .newsletter .button {
+  font-family: 'Gotham-Light';
+  font-size: 13px;
+  text-transform: uppercase;
+  border: 3px solid #8e9eab;
+  background-color: #222;
+  color: #f5f7f8;
+  margin-left: 10px;
+  width: 143px;
+  height: 37px;
+  line-height: 31px;
+  margin-top: 3px;
 }
 
 

@@ -146,9 +146,38 @@
     <div class="footer-container">
       <div>
         <div class="row">
+          <div class="large-7 columns">
+            <h4>About Us</h4>
+            <hr/>
+            {{ config['footer_about_us_text'] }}
+          </div>
+          <div class="large-5 columns newsletter">
+            <h4>Newsletter</h4>
+            <hr/>
+            <p>{{ config['footer_newsletter_text'] }}</p>
+            <form action="https://tinyletter.com/pinnarecords" method="post" target="popupwindow" onsubmit="window.open('https://tinyletter.com/pinnarecords', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+              <table cellspacing="0" cellpadding="0" style="background: none; border: none; padding: 0; margin: 0; width: 100%">
+                <tr>
+                  <td style="padding: 0">
+                    <input type="text" name="email" id="tlemail" placeholder="Enter Email">
+                    <input type="hidden" value="1" name="embed">
+                  </td>
+                  <td style="padding: 0; width: 147px">
+                    <input type="submit" value="Subscribe" class="button postfix">
+                  </td>
+                </tr>
+              </table>
+
+              <p><a href="https://tinyletter.com" target="_blank">powered by TinyLetter</a></p>
+            </form>
+          </div>
+        </div>
+        <div class="row">
           <div class="large-12 columns">
-            <p>
-              &copy; {{ 'now' | date: "%Y" }} {{ store.name }} - {{ powered_by_link }}
+            <br/>
+            <hr/>
+            <p class="copyright">
+              &copy; {{ 'now' | date: "%Y" }} {{ config['footer_copyright_text'] }}
             </p>
           </div>
         </div>
