@@ -51,3 +51,7 @@ end
 get '/stylesheets/fonts/:file' do
   send_file File.join(ThemeKit::PATHS[:stylesheets], 'fonts', params[:file])
 end
+
+get '/javascripts/:file' do
+  send_file File.join(ThemeKit::PATHS[:javascripts], params[:file])
+end

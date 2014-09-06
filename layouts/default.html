@@ -187,6 +187,7 @@
 
     <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
     <script src="http://d38hlclas8yf9g.cloudfront.net/foundation-ffa33444cd30dffe9d40400dd55aa643.min.js"></script>
+    {{ 'default.js' | asset_url | script_tag }}
     <script>
       $(document).foundation({
         orbit: {

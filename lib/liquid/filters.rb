@@ -26,6 +26,12 @@ module Liquid
       %{<link href="#{input}" media="#{media}" rel="stylesheet" type="text/css" />}
     end
 
+    def script_tag(input)
+      return '' if input.nil?
+
+      %{<script src="/#{ThemeKit::PATHS[:javascripts] + "/" + input}" type="text/javascript" ></script>}
+    end
+
     def link_to_news_item(input)
       %{<a href="#">#{input['name']}</a>}
     end

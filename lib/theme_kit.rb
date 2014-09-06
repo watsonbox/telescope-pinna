@@ -12,7 +12,8 @@ class ThemeKit
     configs: 'configs',
     layouts: 'layouts',
     templates: 'templates',
-    stylesheets: 'stylesheets'
+    stylesheets: 'stylesheets',
+    javascripts: 'javascripts'
   }
 
   class << self

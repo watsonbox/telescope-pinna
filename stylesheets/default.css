@@ -214,7 +214,7 @@ nav.pagination span {
     border-bottom: 4px solid transparent;
   }
 
-  .top-bar-section .left li a:not(.button):hover {
+  .top-bar-section .left li a:not(.button):hover, .top-bar-section .left li a.active {
     border-bottom: 4px solid #6c7a89;
   }
 }
