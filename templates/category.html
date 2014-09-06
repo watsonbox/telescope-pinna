@@ -12,7 +12,7 @@
               <img src="{{ config['hero_image_0'] }}"/>
             {% endif %}
           </li>
-  
+
           {% if config['hero_image_1'] != 'http://d38hlclas8yf9g.cloudfront.net/featured-image-placeholder-blue.png' %}
             <li>
               {% if config['hero_link_1'] %}
@@ -24,7 +24,7 @@
               {% endif %}
             </li>
           {% endif %}
-  
+
           {% if config['hero_image_2'] != 'http://d38hlclas8yf9g.cloudfront.net/featured-image-placeholder-blue.png' %}
             <li>
               {% if config['hero_link_2'] %}
@@ -45,13 +45,19 @@
 {% paginate category.products by 24 %}
   <div class="row">
     <div class="large-12 columns">
-      <h4>{{ category.name }}</h4>
+      <h4>
+        {% if category.name == 'All' %}
+          Catalog
+        {% else %}
+          {{ category.name }}
+        {% endif %}
+        </h4>
       <hr/>
 
-      <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+      <ul class="small-block-grid-2 medium-block-grid-2 large-block-grid-2">
         {% for product in category.products %}
           <li>
-            {% include 'product-for-grid.html' %}
+            {% include 'product-for-grid-large.html' %}
           </li>
         {% endfor %}
       </ul>

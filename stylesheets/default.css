@@ -285,6 +285,7 @@ hr {
     background-color: {{ config['content_background_color'] }};
   {% endif %}
   padding-bottom: 100px;
+  padding-top: 20px;
 }
 
 .content-container > div {
@@ -379,13 +380,11 @@ p.copyright {
 
 .product {
   margin: 0 auto;
-  max-width: 202px;
+  max-width: 600px;
 }
 
 .product a.th {
   display: block;
-  height: 200px;
-  line-height: 200px;
   position: relative;
   text-align: center;
 }
@@ -432,7 +431,22 @@ p.copyright {
   white-space: nowrap;
 }
 
-.product .panel-info {
+.product .panel-info a {
+  font-family: 'Gotham SSm A', 'Gotham SSm B'; font-weight: 200; font-style: normal;
+  text-transform: uppercase;
+  line-height: 40px;
+}
+
+.product .panel-info hr {
+  margin: 0;
+  border-color: #222;
+}
+
+.product:not(.large) .panel-info {
+  display: none;
+}
+
+.product.large .panel-info .subtitle {
   display: none;
 }
 
