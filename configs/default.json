@@ -107,6 +107,18 @@
       "default": "http://instagram.com/username",
       "position": 13
     },
+    "social_soundcloud_url_displayed": {
+      "format": "boolean",
+      "label": "Display Soundcloud Icon",
+      "default": true,
+      "position": 13
+    },
+    "social_soundcloud_url": {
+      "format": "text",
+      "label": "Soundcloud URL",
+      "default": "http://soundcloud.com/username",
+      "position": 13
+    },
 
     "hero_images_displayed": {
       "format": "boolean",

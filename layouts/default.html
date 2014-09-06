@@ -56,7 +56,7 @@
     <link href="http://d38hlclas8yf9g.cloudfront.net/normalize-818790cf059fac69a61f5ae15cc5f22a.css" media="screen" rel="stylesheet" type="text/css"/>
     <link href="http://d38hlclas8yf9g.cloudfront.net/foundation-3c4b77ac84767f13b1819600d9e4c039.min.css" media="screen" rel="stylesheet" type="text/css"/>
     {{ 'default.css' | asset_url | stylesheet_tag: 'screen' }}
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" media="screen" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6442112/636766/css/fonts.css" />
 
     <script src="http://d38hlclas8yf9g.cloudfront.net/modernizr-9f855c3ee731604cad22f5ee7047033f.js"></script>
@@ -132,6 +132,10 @@
 
             {% if config['social_instagram_url_displayed'] %}
               <li><a href="{{ config['social_instagram_url'] }}" target="_blank"><i class="fa fa-lg fa-instagram"></i></a></li>
+            {% endif %}
+
+            {% if config['social_soundcloud_url_displayed'] %}
+              <li><a href="{{ config['social_soundcloud_url'] }}" target="_blank"><i class="fa fa-lg fa-soundcloud"></i></a></li>
             {% endif %}
           </ul>
         </section>
