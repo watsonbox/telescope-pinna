@@ -4,19 +4,19 @@
       <h4>{{ roster.title }}</h4>
       <hr/>
 
-      <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+      <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-2">
         {% for item in roster.items %}
           <li>
             <div>
               <a class="th" href="{{ item.url }}">
                 {% if item.images.size > 0 %}
-                  <img src="{{ item.images.first.v200_url }}"/>
+                  <img src="{{ item.images.first.v600_url }}"/>
                 {% else %}
                   <img src="https://d38hlclas8yf9g.cloudfront.net/product-image-placeholder-200.png"/>
                 {% endif %}
               </a>
               <div class="panel panel-info">
-                <div><a href="{{ item.url }}">{{ item.name }}</a></div>
+                <div><h5><a href="{{ item.url }}">{{ item.name }}</a></h5><hr/></div>
               </div>
             </div>
           </li>

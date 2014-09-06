@@ -14,13 +14,15 @@
   </a>
   <div class="panel panel-info">
     <div>
-      <a href="{{ product.url }}">
-        {% if product.custom['title'] != '' %}
-          {{ product.custom['title'] }}
-        {% else %}
-          {{ product.name }}
-        {% endif %}
-      </a>
+      <h5>
+        <a href="{{ product.url }}">
+          {% if product.custom['title'] != '' %}
+            {{ product.custom['title'] }}
+          {% else %}
+            {{ product.name }}
+          {% endif %}
+        </a>
+      </h5>
       <hr/>
     </div>
     <div class="subtitle">

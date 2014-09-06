@@ -89,7 +89,30 @@
         "images": [
           {
             "url": "http://s0.limitedrun.com/images/1085941/ElianeLust_11-2936.jpg",
-            "v200_url": "http://s0.limitedrun.com/images/1085941/v200_ElianeLust_11-2936.jpg"
+            "v200_url": "http://s0.limitedrun.com/images/1086198/v200_eliane-lust-by-margaretta-k-mitchell-300dpi.jpg",
+            "v600_url": "http://s0.limitedrun.com/images/1086198/v600_eliane-lust-by-margaretta-k-mitchell-300dpi.jpg"
+          }
+        ],
+        "links": [
+          {
+            "name": "Website",
+            "url": "http://elianelust.com/"
+          },
+          {
+            "name": "Facebook",
+            "url": "https://www.facebook.com/ElianeLu"
+          }
+        ]
+      },
+      {
+        "name": "Eliane Lust",
+        "url": "/artists/eliane",
+        "description": "<p>Internationally acclaimed American concert pianist Eliane Lust was raised in Belgium, where she began playing piano at age 5. As a girl, she performed the music of Darius Milhaud for the composer; it was Milhaud who suggested that she should go into music professionally. Through her principle teachers, Leonard Shure and György Sebök, she is tied directly to the great classical German and Hungarian musical traditions of Ludwig van Beethoven and Franz Liszt. She has collaborated with many contemporary composers, including John Cage, Leon Kirchner and Frederic Rzewski.</p>",
+        "images": [
+          {
+            "url": "http://s0.limitedrun.com/images/1085941/ElianeLust_11-2936.jpg",
+            "v200_url": "http://s0.limitedrun.com/images/1086198/v200_eliane-lust-by-margaretta-k-mitchell-300dpi.jpg",
+            "v600_url": "http://s0.limitedrun.com/images/1086198/v600_eliane-lust-by-margaretta-k-mitchell-300dpi.jpg"
           }
         ],
         "links": [

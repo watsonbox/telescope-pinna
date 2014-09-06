@@ -388,6 +388,14 @@ p.copyright {
   max-width: 600px;
 }
 
+.product h5 {
+  margin-top: 16px;
+}
+
+.product h5 + hr {
+  margin-bottom: 10px;
+}
+
 .product a.th {
   display: block;
   position: relative;
@@ -434,17 +442,6 @@ p.copyright {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.product .panel-info a {
-  font-family: 'Gotham SSm A', 'Gotham SSm B'; font-weight: 200; font-style: normal;
-  text-transform: uppercase;
-  line-height: 40px;
-}
-
-.product .panel-info hr {
-  margin: 0;
-  border-color: #222;
 }
 
 .product:not(.large) .panel-info {
@@ -797,9 +794,16 @@ article.news {
 
 }
 
+#roster h5 {
+  margin-top: 16px;
+}
+
+#roster h5 + hr {
+  margin-bottom: 10px;
+}
+
 #roster ul li > div {
   margin: 0 auto;
-  max-width: 202px;
 }
 
 #roster ul li > div .panel {
