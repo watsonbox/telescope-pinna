@@ -1,14 +1,17 @@
 {% paginate news.items by 5 %}
   <div class="row">
-    <div class="large-9 columns" role="content">
+    <div class="large-12 columns" role="content">
+      <h4>News</h4>
+      <hr/>
+
       {% for item in news.items %}
         {% if forloop.index > 1 %}
           <hr/>
         {% endif %}
 
-        <article>
-          <h3>{{ item | link_to_news_item }}</h3>
-          <h6>Posted on {{ item.published_at | date: "%B" }} {{ item.published_at | date: "%d" | ordinalize }}, {{ item.published_at | date: "%Y" }}</h6>
+        <article class="news">
+          <h6>{{ item.published_at | date: "%B" }} {{ item.published_at | date: "%d" | ordinalize }}, {{ item.published_at | date: "%Y" }}</h6>
+          <p class="subheading">{{ item | link_to_news_item }}</p>
 
           {{ item.body }}
         </article>
