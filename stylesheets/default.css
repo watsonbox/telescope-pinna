@@ -730,6 +730,17 @@ article.news {
   margin: 0 0 1rem 0;
 }
 
+#contact button {
+  font-family: 'Gotham SSm A', 'Gotham SSm B'; font-weight: 500; font-style: normal;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #222;
+  background-color: #fff;
+  border: 3px solid #6c7a89;
+  height: 40px;
+  line-height: 2px;
+}
+
 
 /* Gallery Page */
 

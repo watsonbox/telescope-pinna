@@ -1,9 +1,10 @@
 <div id="contact" class="row">
-  <div class="large-9 columns" role="content">
+  <div class="large-12 columns" role="content">
     <div class="row">
       <div class="large-12 columns">
-        <h4>{{ store.mailbox.title }}</h4>
+        <h4>Contact Us</h4>
         <hr/>
+        {{ config['contact_us_text'] }}
       </div>
     </div>
 
@@ -44,22 +45,17 @@
       {% endcomment %}
 
       <div class="row">
-        <div class="large-12 columns">
-          <label>What's your name?</label>
-          <input type="text" name="message[name]" value="{{ message.name }}"/>
+        <div class="small-12 medium-6 large-6 columns">
+          <input type="text" name="message[name]" value="{{ message.name }}" placeholder="Your name"/>
+        </div>
+        <div class="small-12 medium-6 large-6 columns">
+          <input type="text" name="message[email]" value="{{ message.email }}" placeholder="Your email address"/>
         </div>
       </div>
 
       <div class="row">
         <div class="large-12 columns">
-          <label>What's your email address?</label>
-          <input type="text" name="message[email]" value="{{ message.email }}"/>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="large-12 columns">
-          <textarea name="message[body]">{{ message.body }}</textarea>
+          <textarea name="message[body]" placeholder="Talk to us!">{{ message.body }}</textarea>
         </div>
       </div>
 
