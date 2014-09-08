@@ -103,12 +103,13 @@
   {% endif %}
 
 {% else %}
-  {% paginate store.products by 4 %}
-    <div class="row">
-      <div class="large-7 columns">
-        <h4>News</h4>
-        <hr/>
 
+  <div class="row">
+    <div class="large-7 columns">
+      <h4>News</h4>
+      <hr/>
+
+      {% paginate store.news.items by 4 %}
         {% for item in store.news.items %}
           {% if forloop.index > 1 %}
             <hr/>
@@ -121,11 +122,13 @@
             {{ item.body }}
           </article>
         {% endfor %}
-      </div>
-      <div class="large-5 columns">
-        <h4>{{ config['default-category-heading-text'] }}</h4>
-        <hr/>
+      {% endpaginate %}
+    </div>
+    <div class="large-5 columns">
+      <h4>{{ config['default-category-heading-text'] }}</h4>
+      <hr/>
 
+      {% paginate store.products by 2 %}
         <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-2">
           {% for product in store.products %}
             <li>
@@ -133,15 +136,16 @@
             </li>
           {% endfor %}
         </ul>
+      {% endpaginate %}
 
-        {% if config['home-page-soundcloud-playlist-id'] %}
-          <h4>{{ config['home-page-soundcloud-title'] }}</h4>
-          <hr/>
-          <div class="soundcloud-container">
-            <iframe width="100%" height="300" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Fplaylists%2F{{ config['home-page-soundcloud-playlist-id'] }}&show_artwork=false&show_play_count=false&color={{ config['soundcloud_player_color'] | replace:'#','' }}"></iframe>
-          </div>
-        {% endif %}
-      </div>
+      {% if config['home-page-soundcloud-playlist-id'] %}
+        <h4>{{ config['home-page-soundcloud-title'] }}</h4>
+        <hr/>
+        <div class="soundcloud-container">
+          <iframe width="100%" height="300" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Fplaylists%2F{{ config['home-page-soundcloud-playlist-id'] }}&show_artwork=false&show_play_count=false&color={{ config['soundcloud_player_color'] | replace:'#','' }}"></iframe>
+        </div>
+      {% endif %}
     </div>
-  {% endpaginate %}
+  </div>
+
 {% endif %}
