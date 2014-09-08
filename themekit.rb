@@ -18,6 +18,10 @@ get '/news' do
   ThemeKit.render 'news.html', news: ThemeKit.store.news
 end
 
+get '/news/posts/:item' do
+  ThemeKit.render 'news-item.html', item: ThemeKit.store.news.items.first
+end
+
 get '/store' do
   ThemeKit.render 'category.html', category: { name: 'All', products: ThemeKit.store.products }
 end

@@ -33,7 +33,7 @@ module Liquid
     end
 
     def link_to_news_item(input)
-      %{<a href="#">#{input['name']}</a>}
+      %{<a href="/news/posts/first">#{input['title']}</a>}
     end
 
     def link_to_page(input)
