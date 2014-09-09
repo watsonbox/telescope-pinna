@@ -65,7 +65,10 @@
     }
   ],
   "categories": [
-    "Catalog"
+    {
+      "name": "Catalog",
+      "url": "/store"
+    }
   ],
   "pages": [
     {
