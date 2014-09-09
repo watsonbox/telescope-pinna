@@ -105,7 +105,7 @@
 {% else %}
 
   <div class="row">
-    <div class="large-7 columns">
+    <div class="large-7 medium-6 small-12 columns">
       <h4>News</h4>
       <hr/>
 
@@ -119,17 +119,22 @@
             <h6>{{ item.published_at | date: "%B" }} {{ item.published_at | date: "%d" | ordinalize }}, {{ item.published_at | date: "%Y" }}</h6>
             <p class="subheading">{{ item.title }}</p>
 
-            {{ item.body }}
+            <div class="news-item-body">
+              {{ item.body }}
+            </div>
+            <p class="news-item-body-expand">
+              <a hfer="#" data-behavior="toggle-news-item">+ More</a>
+            </p>
           </article>
         {% endfor %}
       {% endpaginate %}
     </div>
-    <div class="large-5 columns">
+    <div class="large-5 medium-6 small-12 columns">
       <h4>{{ config['default-category-heading-text'] }}</h4>
       <hr/>
 
       {% paginate store.products by 2 %}
-        <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-2">
+        <ul class="small-block-grid-2 medium-block-grid-2 large-block-grid-2">
           {% for product in store.products %}
             <li>
               {% include 'product-for-grid.html' %}

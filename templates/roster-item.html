@@ -116,7 +116,7 @@
                     <h5>Releases <a class="right" href="{{ item.url }}/products">View All</a></h5>
                     <hr/>
 
-                    <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-2">
+                    <ul class="small-block-grid-2 medium-block-grid-2 large-block-grid-2">
                       {% for product in item.products limit:8 %}
                         <li class="{% if forloop.index > 4 %}show-for-medium-up{% endif %}">
                           {% include 'product-for-grid.html' %}
