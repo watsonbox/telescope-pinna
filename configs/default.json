@@ -1,5 +1,5 @@
 {
-  "name": "Telescope",
+  "name": "Telescope-Pinna",
   "description": "<p>A perfect responsive theme for customizing.</p><ul class=\"features\"><li>Responsive Design</li><li>Background Image Upload</li><li>Custom Color Pickers</li><li>Google Analytics</li><li>Social Links</li><li>Tweet &amp; Like Buttons</li><li>Related Products</li><li>All Site Modules</li></ul>",
   "author": {
     "name": "Limited Run",
@@ -110,14 +110,12 @@
     "social_soundcloud_url_displayed": {
       "format": "boolean",
       "label": "Display Soundcloud Icon",
-      "default": true,
-      "position": 13
+      "default": true
     },
     "social_soundcloud_url": {
       "format": "text",
       "label": "Soundcloud URL",
-      "default": "http://soundcloud.com/username",
-      "position": 13
+      "default": "http://soundcloud.com/username"
     },
 
     "hero_images_displayed": {
