@@ -312,6 +312,10 @@ h6 {
   margin-bottom: 12px;
 }
 
+.subheading a {
+  color: #222;
+}
+
 hr {
   border-color: #c0c2c2;
 }
