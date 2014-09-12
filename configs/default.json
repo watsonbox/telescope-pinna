@@ -192,9 +192,10 @@
       "position": 25
     },
 
-    "home-page-soundcloud-playlist-id": {
+    "home-page-soundcloud-user-id": {
       "format": "text",
-      "label": "Home page Soundcloud Playlist ID"
+      "label": "Home page Soundcloud User ID",
+      "default": "67616098"
     },
     "home-page-soundcloud-title": {
       "format": "text",

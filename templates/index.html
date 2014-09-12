@@ -143,11 +143,11 @@
         </ul>
       {% endpaginate %}
 
-      {% if config['home-page-soundcloud-playlist-id'] %}
+      {% if config['home-page-soundcloud-user-id'] %}
         <h4>{{ config['home-page-soundcloud-title'] }}</h4>
         <hr/>
         <div class="soundcloud-container">
-          <iframe width="100%" height="300" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Fplaylists%2F{{ config['home-page-soundcloud-playlist-id'] }}&show_artwork=false&show_play_count=false&color={{ config['soundcloud_player_color'] | replace:'#','' }}"></iframe>
+          <iframe width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/{{ config['home-page-soundcloud-user-id'] }}&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true&color={{ config['soundcloud_player_color'] | replace:'#','' }}"></iframe>
         </div>
       {% endif %}
     </div>
