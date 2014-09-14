@@ -489,6 +489,10 @@ p.copyright {
   display: none;
 }
 
+.product.large .panel-info h5 {
+  font-size: 14px;
+}
+
 .product .panel-info div + div {
   font-size: 0.75rem;
   margin-top: 0rem;

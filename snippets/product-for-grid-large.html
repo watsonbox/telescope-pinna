@@ -18,6 +18,8 @@
         <a href="{{ product.url }}">
           {% if product.custom['title'] != '' %}
             {{ product.custom['title'] }}
+          {% elsif product.music_catalog_number %}
+            {{ product.music_catalog_number }}
           {% else %}
             {{ product.name }}
           {% endif %}
