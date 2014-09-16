@@ -11,19 +11,6 @@
           {% else %}
             {{ product.name}}
           {% endif %}
-          {% if product.music_catalog_number %}
-            <span class="right">{{ product.music_catalog_number }}</span>
-          {% elsif product.categories.size > 1 %}
-            {% assign custom_category_for_display = false %}
-
-            {% for c in product.categories limit:1 offset:1 %}
-              {% assign custom_category_for_display = store.category_by_slug[c.slug] %}
-            {% endfor %}
-
-            {% if custom_category_for_display %}
-              <span class="right"><a href="{{ custom_category_for_display.url }}">{{ custom_category_for_display.name }}</a></span>
-            {% endif %}
-          {% endif %}
         </h4>
         <hr/>
       </div>
@@ -107,8 +94,23 @@
             </div>
           </div>
 
+          <div class="small-12 medium-12 large-12 columns">
+            <h6>
+              {% if product.music_catalog_number %}
+                {{ product.music_catalog_number }}
+              {% else %}
+                {{ product.name }}
+              {% endif %}
+            </h6>
+
+            {% if product.custom['related-roster-item-slug'] != '' %}
+              {% assign related_roster_item = store.roster_item_by_slug[product.custom['related-roster-item-slug']] %}
+              <p class="subheading">{{ related_roster_item.name }}</p>
+            {% endif %}
+          </div>
+
           {% if product.description != '' %}
-            <div class="small-12 medium-12 large-12 columns">
+            <div class="small-12 medium-12 large-12 columns product-description">
               {{ product.description | simple_format }}
             </div>
           {% endif %}
@@ -150,40 +152,27 @@
               </div>
             </div>
           {% endif %}
+
+          {% if product.custom['watch-section'] and product.custom['watch-section'] != '' %}
+            <div class="small-12 medium-12 large-12 columns">
+              <h5>Watch</h5>
+              <hr/>
+              {{ product.custom['watch-section'] }}
+            </div>
+          {% endif %}
+
+          {% if product.custom['quotes-section'] and product.custom['quotes-section'] != '' %}
+            <div class="small-12 medium-12 large-12 columns">
+              <h5>Quotes</h5>
+              <hr/>
+              {{ product.custom['quotes-section'] }}
+            </div>
+          {% endif %}
         </div>
       </div>
     </div>
   </div>
 </div>
-
-{% assign current_product = product %}
-
-{% if product.custom['related-roster-item-slug'] != '' %}
-  {% assign related_roster_item = store.roster_item_by_slug[product.custom['related-roster-item-slug']] %}
-
-  {% if related_roster_item %}
-    <div class="row">
-      <div class="large-12 columns">
-        <h4>More from {{ related_roster_item.name }} <a class="right" href="{{ related_roster_item.url }}/products">View All</a></h4>
-        <hr/>
-
-        <ul class="small-block-grid-2 medium-block-grid-4 large-block-grid-4">
-          {% assign current_product_skipped = false %}
-
-          {% for product in related_roster_item.products limit:5 %}
-            {% if current_product.id == product.id %}
-              {% assign current_product_skipped = true %}
-            {% else %}
-              <li class="{% if forloop.index > 3 %}show-for-medium-up{% endif %} {% if forloop.index > 4 %}{% unless current_product_skipped %}hide{% endunless %}{% endif %}">
-                {% include 'product-for-grid.html' %}
-              </li>
-            {% endif %}
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
-  {% endif %}
-{% endif %}
 
 {% assign related_category = false %}
 {% assign specify_category = true %}

@@ -320,6 +320,12 @@ hr {
   border-color: #c0c2c2;
 }
 
+ol {
+  font-size: 12px;
+  list-style-position: inside;
+  margin-left: 0;
+}
+
 .row {
   max-width: 1030px;
 }
@@ -595,7 +601,15 @@ p.copyright {
 }
 
 #product .add-to-cart-container {
+  margin-bottom: 10px;
+}
 
+#product .product-description ol li:nth-of-type(1) {
+  margin-top: -20px;
+}
+
+#product .product-description ol li {
+  margin-bottom: -20px;
 }
 
 
