@@ -11,7 +11,7 @@
 
         <article class="news">
           <h6>{{ item.published_at | date: "%B" }} {{ item.published_at | date: "%d" | ordinalize }}, {{ item.published_at | date: "%Y" }}</h6>
-          <p class="subheading">{{ item.title }}</p>
+          <p class="subheading">{{ item | link_to_news_item }}</p>
 
           {{ item.body }}
         </article>

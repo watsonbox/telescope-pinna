@@ -245,13 +245,13 @@
 
     "link_color": {
       "format": "color",
-      "default": "#2ba6cb",
+      "default": "#6c7a89",
       "label": "Link Color",
       "position": 32
     },
     "link_hover_color": {
       "format": "color",
-      "default": "#2795b6",
+      "default": "#222",
       "label": "Link Hover Color",
       "position": 33
     },

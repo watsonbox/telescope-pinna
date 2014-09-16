@@ -6,6 +6,7 @@ a {
 
 a:hover, a:focus {
   color: {{ config['link_hover_color'] }};
+  text-decoration: underline;
 }
 
 .button {
@@ -177,6 +178,10 @@ nav.pagination span {
   font-size: 12px;
   text-transform: uppercase;
   color: #000;
+}
+
+.top-bar-section ul li > a:hover {
+  text-decoration: none;
 }
 
 .top-bar .toggle-topbar.menu-icon {

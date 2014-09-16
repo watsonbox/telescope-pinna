@@ -61,6 +61,14 @@
             </div>
           {% endif %}
 
+          {% if item.links.size > 0 %}
+            {% for link in item.links %}
+              <p>
+                <a href="{{ link.url }}" target="_blank">{{ link.name }}</a>
+              </p>
+            {% endfor %}
+          {% endif %}
+
           <div class="row">
             <div class="large-12 medium-12 small-12 columns">
               {% if item.history_items.size > 0 %}
@@ -131,23 +139,6 @@
 
           <dic class="row collapse">
             <div class="large-12 medium-12 small-12 columns">
-              {% if item.links.size > 0 %}
-                <div id="links" class="row collapse">
-                  <div class="large-12 columns">
-                    <h5>Links</h5>
-                    <hr/>
-
-                    <ul class="inline-list">
-                      {% for link in item.links %}
-                        <li>
-                          <a href="{{ link.url }}">{{ link.name }}</a>
-                        </li>
-                      {% endfor %}
-                    </ul>
-                  </div>
-                </div>
-              {% endif %}
-
               {% if item.soundcloud_playlist_id %}
                 <div id="soundcloud" class="row">
                   <div class="large-12 columns">
