@@ -56,7 +56,7 @@
     "social_facebook_url": {
       "format": "text",
       "label": "Facebook URL",
-      "default": "http://facebook.com/username",
+      "default": "https://www.facebook.com/pinnarecordsus",
       "position": 5
     },
     "social_twitter_url_displayed": {
@@ -68,7 +68,7 @@
     "social_twitter_url": {
       "format": "text",
       "label": "Twitter URL",
-      "default": "http://twitter.com/username",
+      "default": "https://twitter.com/pinnarecords",
       "position": 7
     },
     "social_tumblr_url_displayed": {
@@ -92,7 +92,7 @@
     "social_youtube_url": {
       "format": "text",
       "label": "YouTube URL",
-      "default": "http://youtube.com/username",
+      "default": "http://www.youtube.com/channel/UCdhZtub2UL-happ04TdvQxQ",
       "position": 11
     },
     "social_instagram_url_displayed": {
@@ -115,7 +115,7 @@
     "social_soundcloud_url": {
       "format": "text",
       "label": "Soundcloud URL",
-      "default": "http://soundcloud.com/username"
+      "default": "https://soundcloud.com/pinnarecords"
     },
 
     "hero_images_displayed": {
@@ -400,7 +400,7 @@
     "footer_about_us_text": {
       "type": "text",
       "label": "Footer About Us Text",
-      "default": "<p>Pinna Records, based in San Francisco, California, is a new label that releases music by contemporary composers. We believe, with <a href=\"http://www.kylegann.com\">Kyle Gann</a>, that \"brand-new music can sometimes be joyous, clear, seductive, ingratiating, and/or simple, and still well-worth listening to and exploring.\"</p><p>The <i>pinna</i> is the visible part of the ear. It acts as a funnel, amplifying and directing sound to the auditory canal. Like a fingerprint, it is unique to the individual; similarly, our ears, rather than any specific agenda, guide our decisions about what to record and release.</p><p>The label was founded by producer <a href=\"http://about.me/rogerrohrbach\">Roger Rohrbach</a> in 2013, and launched with pianist <a href=\"http://elianelust.com\">Eliane Lust</a>'s \"wonderful and imaginatively-conceived\" <i><a href=\"http://www.pinnarecords.com/entangoed\">Entangoed</a></i>.</p>"
+      "default": "<p>Pinna Records, based in San Francisco, California, is a new label that releases music by contemporary composers. We believe, with <a href=\"http://www.kylegann.com\">Kyle Gann</a>, that \"brand-new music can sometimes be joyous, clear, seductive, ingratiating, and/or simple, and still well-worth listening to and exploring.\"</p><p>The <i>pinna</i> is the visible part of the ear. It acts as a funnel, amplifying and directing sound to the auditory canal. Like a fingerprint, it is unique to the individual, and Pinna is a personal affair: our ears, rather than any specific agenda, guide our decisions about what to record and release.</p>"
     },
     "footer_newsletter_text": {
       "type": "text",
