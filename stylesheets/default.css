@@ -9,6 +9,10 @@ a:hover, a:focus {
   text-decoration: underline;
 }
 
+strong, b {
+  font-weight: 500;
+}
+
 .button {
   background-color: {{ config['button_color'] }};
   border-color: {{ config['button_border_color'] }};
@@ -349,7 +353,7 @@ ol {
   {% else %}
     background-color: {{ config['content_background_color'] }};
   {% endif %}
-  padding-bottom: 100px;
+  padding-bottom: 70px;
   padding-top: 20px;
 }
 
