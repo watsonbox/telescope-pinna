@@ -56,15 +56,20 @@ a:hover, a:focus {
 
 nav.pagination {
   display: block;
-  font-size: 1rem;
-  height: 1.5rem;
   line-height: 1.6;
   margin-left: -0.3125rem;
+  font-family: 'Gotham SSm A', 'Gotham SSm B'; font-weight: 200; font-style: normal;
+  font-size: 18px;
+  padding-top: 9px;
+  padding-bottom: 10px;
+  border-top: 1px solid #c0c2c2;
+  border-bottom: 1px solid #c0c2c2;
+  margin-top: 40px;
 }
 
 nav.pagination span {
   color: {{ config['pagination_font_color'] }};
-  font-size: 0.875rem;
+  font-size: 18px;
   height: 1.5rem;
   margin-left: 0.3125rem;
 }
@@ -81,6 +86,7 @@ nav.pagination span a, nav.pagination span.current, nav.pagination span.inactive
 nav.pagination span:hover a, nav.pagination span a:focus {
   background-color: {{ config['pagination_background_hover_color'] }};
   color: {{ config['pagination_font_hover_color'] }};
+  text-decoration: none;
 }
 
 nav.pagination span.inactive {

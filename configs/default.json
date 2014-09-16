@@ -344,7 +344,7 @@
     },
     "pagination_font_color": {
       "format": "color",
-      "default": "#999999",
+      "default": "#6c7a89",
       "label": "Pagination Font Color",
       "position": 48
     },
@@ -362,13 +362,13 @@
     },
     "pagination_current_background_color": {
       "format": "color",
-      "default": "#2ba6cb",
+      "default": "transparent",
       "label": "Pagination Current Background Color",
       "position": 51
     },
     "pagination_current_font_color": {
       "format": "color",
-      "default": "#ffffff",
+      "default": "#222",
       "label": "Pagination Current Font Color",
       "position": 52
     },
