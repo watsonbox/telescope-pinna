@@ -91,6 +91,12 @@
 
         <section class="top-bar-section">
           <ul class="left">
+            {% for page in store.pages %}
+              {% if page.title == 'News' %}
+                <li>{{ page | link_to_page }}</li>
+              {% endif %}
+            {% endfor %}
+
             {% if store.categories.size > 1 %}
               <li class="has-dropdown">
                 <a href="/store">{{ config['navigation_store_link_name'] }}</a>
@@ -105,7 +111,9 @@
             {% endif %}
 
             {% for page in store.pages %}
-              <li>{{ page | link_to_page }}</li>
+              {% if page.title != 'News' %}
+                <li>{{ page | link_to_page }}</li>
+              {% endif %}
             {% endfor %}
           </ul>
 
