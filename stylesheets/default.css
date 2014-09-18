@@ -902,6 +902,13 @@ article.news {
   white-space: nowrap;
 }
 
+#roster a.th {
+  background-position: center top;
+  background-size: cover;
+  padding-bottom: 100%;
+  width: 100%;
+}
+
 
 /* Roster Item Page */
 
