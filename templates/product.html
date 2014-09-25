@@ -36,6 +36,14 @@
               {% endif %}
             </ul>
           </div>
+
+          {% if product.custom['track-listing-section'] and product.custom['track-listing-section'] != '' %}
+            <div class="small-12 medium-12 large-12 columns">
+              <h5>Track Listing</h5>
+              <hr/>
+              {{ product.custom['track-listing-section'] }}
+            </div>
+          {% endif %}
         </div>
 
         {% if product.custom['banner-text'] != '' %}
