@@ -415,7 +415,7 @@
     "contact_us_text": {
       "type": "text",
       "label": "Contact Us Text",
-      "default": "<p><strong>Pinna Records</strong><br/>3288 21st St. #135<br/>San Francisco, CA94110<br/>USA</p><p>We welcome your questions, comments and complaints.</p>"
+      "default": "<p><strong>Pinna Records</strong><br/>3288 21st St. #135<br/>San Francisco, CA 94110<br/>USA</p><p>We welcome your questions, comments and complaints.</p>"
     }
   }
 }
